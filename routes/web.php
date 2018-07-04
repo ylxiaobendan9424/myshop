@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 	 Route::any('/admin/login','admin\LoginController@login');
 
 	 Route::any('/admin/dologin','admin\LoginController@dologin');
@@ -33,8 +34,12 @@ Route::group(['middleware'=>'login'],function(){
 
 	Route::any('admin/logout','admin\LoginController@logout');
 
+	Route::resource('admin/comment','admin\CommentController');
 
 });
+
+//Route::get('admin/comment','admin\CommentController@index');
+//Route::get('admin/comment','admin\CommentController@create');
 
 
 
