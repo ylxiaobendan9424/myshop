@@ -11,10 +11,10 @@
     <div class="mws-panel-body no-padding">
 
     		@if (count($errors) > 0)
-			    <div class="mws-form-message error">
+			    <div class="alert alert-danger">
 			        <ul>
 			            @foreach ($errors->all() as $error)
-			                <li style='font-size:16px;list-style:none'>{{ $error }}</li>
+			                <li>{{ $error }}</li>
 			            @endforeach
 			        </ul>
 			    </div>
@@ -42,13 +42,6 @@
     				<div class="mws-form-item">
                         <textarea name="content" class="small" cols="30" rows="10"></textarea>
     					
-    				</div>
-    			</div>
-
-    			<div class="mws-form-row">
-    				<label class="mws-form-label">创建时间</label>
-    				<div class="mws-form-item">
-    					<input type="text" class="small" name='create_at'>
     				</div>
     			</div>
 

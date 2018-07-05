@@ -50,7 +50,17 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //表单验证
+
+        // dump($request->all());
+        $this->validate($request,[
+            'goods_id'=>'required',
+            ],[
+
+            'goods_id.required'=>'商品id不能为空'
+            //'goods_id.regex'=>'商品id格式不正确',
+            ]);
+
     }
 
     /**

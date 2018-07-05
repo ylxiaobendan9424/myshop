@@ -13,5 +13,5 @@ class Comment extends Model
 
 
     //可以被批量赋值的属性
-    protected $fillable = ['goods_id','user_id','content','create_at','appraise'];
+    protected $fillable = ['goods_id','user_id','content','appraise'];
 }

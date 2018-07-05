@@ -36,6 +36,8 @@ Route::group(['middleware'=>'login'],function(){
 
 	Route::resource('admin/comment','admin\CommentController');
 
+	Route::resource('admin/gonggao','admin\GonggaoController');
+	Route::any('admin/gonggao/update/{id}','admin\GonggaoController@update');
 });
 
 //Route::get('admin/comment','admin\CommentController@index');
