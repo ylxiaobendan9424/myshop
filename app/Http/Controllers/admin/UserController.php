@@ -117,10 +117,9 @@ class UserController extends Controller
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
         }
-
         //存数据表
         $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
-
+        
         //密码加密
         $res['password'] = Hash::make($request->input('password'));
 
@@ -177,15 +176,14 @@ class UserController extends Controller
         //表单验证
 
 
-        $foo = User::find($id);
+        // $foo = User::find($id);
 
-        $urls = $foo->profile;
+        // $urls = $foo->profile;
 
-        // dd($urls);
+        // // dd($urls);
 
-        $info = '@'.unlink('.'.$urls);
-
-        if(!$info)  return;
+        // $info = '@'.unlink('.'.$urls);
+        // if(!$info)  return;
 
         $res = $request->except('_token','_method','profile');
 

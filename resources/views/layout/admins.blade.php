@@ -183,6 +183,13 @@
                             <li><a href="/admin/user">浏览用户</a></li>
                         </ul>
                     </li>
+                      <li>
+                        <a href="#"><i class="icon-users"></i>角色管理</a>
+                        <ul class='closed'>
+                            <li><a href="/">添加角色</a></li>
+                            <li><a href="/">浏览角色</a></li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="#"><i class="icon-list"></i>分类管理</a>
@@ -191,31 +198,14 @@
                             <li><a href="/admin/category">浏览分类</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="icon-shopping-cart"></i>商品管理</a>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>友情链接</a>
                         <ul class='closed'>
-                            <li><a href="/admin/goods/create">添加商品</a></li>
-                            <li><a href="/admin/goods">浏览商品</a></li>
+                            <li><a href="/admin/link/create">添加链接</a></li>
+                            <li><a href="/admin/link">浏览链接</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="icon-list"></i>评论管理</a>
-                        <ul class='closed'>
-                            <li><a href="/admin/comment/create">添加评论</a></li>
-                            <li><a href="/admin/comment">评论列表</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-list"></i>公告管理</a>
-                        <ul class='closed'>
-                            <li><a href="/admin/gonggao/create">添加公告</a></li>
-                            <li><a href="/admin/gonggao">浏览公告</a></li>
-                        </ul>
-                    </li>
-                    
-
                 </ul>
-
             </div>         
         </div>
         
