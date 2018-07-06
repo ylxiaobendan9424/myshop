@@ -15,17 +15,20 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         //$res = DB::table('comment')->get();
         // dd($res);
+        $res = Comment::where('goods_id','1'.$request->input('search').'%')->paginate($request->input('num',10));
+        //dd($res['num']);
+        $arr = ['num'=>$request->input('num'),'search'=>$request->input('search')];
 
         return view('admin.comment.index',[
                 'title'=>'评论的列表页面',
                 
             ]);  
-        //return view('admin.comment.index',['title'=>'评论列表','res'=>$res,'request'=>$request]); 
+         
     }
 
     /**

@@ -72,7 +72,7 @@
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
                         <td class="">
-                            {{$v->id}}
+                            {{$i++}}
                         </td>
                         <td class=" ">
                             {{$v->title}}

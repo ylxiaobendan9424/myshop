@@ -21,11 +21,16 @@ class GonggaoController extends Controller
                 paginate($request->input('num',10));
         //dd($res['num']);
         $arr = ['num'=>$request->input('num'),'search'=>$request->input('search')];
+
+        $i = 1;
+
         
         return view('admin.gonggao.index',[
             'title'=>'公告的列表页',  
             'res'=>$res,
-            'arr'=>$arr
+            'arr'=>$arr,
+            'i' => $i
+
             ]);
     }
 

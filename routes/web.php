@@ -44,11 +44,13 @@ Route::group(['middleware'=>'login'],function(){
 //Route::get('admin/comment','admin\CommentController@create');
 
 
+//Route::any('home/shouye/index','home\ShouyeController@index');
+
 
 //前台路由组
 Route::group([],function(){
 
-
+	Route::any('/home','home\HomeController@index');
 
 
 });

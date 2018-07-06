@@ -41,15 +41,11 @@
 	            </div>
 	            {{--<div class="dataTables_filter" id="DataTables_Table_1_filter">
 	                <label>
-	                    用户名:
+	                    用户id:
 	                    <input type="text" name='search' value="{{$request->search}}" aria-controls="DataTables_Table_1">
 	                </label>
 
-                    <label>
-                        邮箱:
-                        <input type="text" name='email' value="{{$request->email}}" aria-controls="DataTables_Table_1">
-                    </label>
-
+                    
 	                <button class='btn btn-info'>搜索</button>
 	            </div>--}}
             </form>
