@@ -25,6 +25,9 @@ class TjgoodsController extends Controller
     public function create()
     {
         //
+        return view('admin.goods.add',[
+            'title'=>'特价商品的添加页面'
+            ]);
     }
 
     /**

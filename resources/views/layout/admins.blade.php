@@ -201,7 +201,7 @@
                     <li>
                         <a href="#"><i class="icon-list"></i>评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/goods/create">添加评论</a></li>
+                            <li><a href="/admin/comment/create">添加评论</a></li>
                             <li><a href="/admin/comment">评论列表</a></li>
                         </ul>
                     </li>
@@ -215,8 +215,8 @@
                     <li>
                         <a href="#"><i class="icon-list"></i>特价商品管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/gonggao/create">添加特价商品</a></li>
-                            <li><a href="/admin/gonggao">浏览特价商品</a></li>
+                            <li><a href="/admin/tjgoods/create">添加特价商品</a></li>
+                            <li><a href="/admin/tjgoods">浏览特价商品</a></li>
                         </ul>
                     </li>
                     

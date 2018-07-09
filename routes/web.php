@@ -32,6 +32,8 @@ Route::group(['middleware'=>'login'],function(){
 
 	Route::resource('admin/category','admin\categoryController');
 
+	Route::resource('admin/tjgoods','admin\TjgoodsController');
+
 	Route::any('admin/logout','admin\LoginController@logout');
 
 	Route::resource('admin/comment','admin\CommentController');
