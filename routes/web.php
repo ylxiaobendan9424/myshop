@@ -14,7 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 	 Route::any('/admin/login','admin\LoginController@login');
 
 	 Route::any('/admin/dologin','admin\LoginController@dologin');
@@ -31,24 +30,22 @@ Route::group(['middleware'=>'login'],function(){
 	Route::any('admin/ajaxuser','admin\UserController@ajaxuser');
 
 	Route::resource('admin/category','admin\categoryController');
-
+	//友情链接
+	Route::resource('admin/link','admin\LinkController');
+	Route::any('admin/link/update/{id}','admin\LinkController@update');
 	Route::any('admin/logout','admin\LoginController@logout');
 
-	Route::resource('admin/comment','admin\CommentController');
 
-	Route::resource('admin/gonggao','admin\GonggaoController');
-	Route::any('admin/gonggao/update/{id}','admin\GonggaoController@update');
 });
-
-//Route::get('admin/comment','admin\CommentController@index');
-//Route::get('admin/comment','admin\CommentController@create');
 
 
 
 //前台路由组
 Route::group([],function(){
 
+  	Route::any('/home','home\HomeController@index');
 
-
+	Route::any('/home/cart','home\CartController@cart');
+	Route::any('/home/ajaxcart','home\CartController@ajaxcart');
 
 });
