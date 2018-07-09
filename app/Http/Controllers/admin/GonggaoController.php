@@ -58,7 +58,7 @@ class GonggaoController extends Controller
         //
         $this->validate($request, [
             'title' => 'required',
-            'url' => 'required|regex:/^\S{1,50}$/',          
+            'url' => 'required|regex:/^\S{1,150}$/',          
         ],[
             'title.required'=>'公告标题名不能为空',
             //'title.regex'=>'公告标题名格式不正确',
@@ -120,7 +120,7 @@ class GonggaoController extends Controller
         //
         $this->validate($request, [
             //'title' => 'required',
-            'url' => 'required|regex:/^\S{1,50}$/',          
+            'url' => 'required|regex:/^\S{1,150}$/',          
         ],[
             'title.required'=>'公告标题不能为空',
             //'title.regex'=>'公告标题格式不正确',
@@ -157,4 +157,5 @@ class GonggaoController extends Controller
         
         }
     }
+
 }

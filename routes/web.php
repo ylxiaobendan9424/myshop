@@ -50,7 +50,10 @@ Route::group(['middleware'=>'login'],function(){
 //前台路由组
 Route::group([],function(){
 
-	Route::any('/home','home\HomeController@index');
+	Route::resource('/home','home\HomeController');
+	Route::get('/list','home\ListController@index');
+	Route::get('/gglist','home\GglistController@index');
+
 
 
 });

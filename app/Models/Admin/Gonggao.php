@@ -23,5 +23,5 @@ class Gonggao extends Model
      *
      * @var array
      */
-    protected $fillable = ['title','url','create_at'];
+    protected $fillable = ['title','url'];
 }
