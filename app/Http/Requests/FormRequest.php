@@ -25,7 +25,7 @@ class FormRequest extends FormRequest
     {
         return [
             //
-            'username' => 'required|regex:/^\w{6,12}$/',
+            'username' => 'required',
             'password' => 'required|regex:/^\S{6,12}$/',
             'repass'=>'same:password',
             'email'=>'email',

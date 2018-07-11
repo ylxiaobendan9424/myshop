@@ -84,24 +84,24 @@ class UserController extends Controller
      */
     public function store(FormRequest $request)
     {
-        //表单验证
-      /*  $this->validate($request, [
-            'username' => 'required|regex:/^\w{6,12}$/',
-            'password' => 'required|regex:/^\S{6,12}$/',
-            'repass'=>'same:password',
-            'email'=>'email',
-            'phone'=>'required|regex:/^1[3456789]\d{9}$/',            
-        ],[
-            'username.required'=>'用户名不能为空',
-            'username.regex'=>'用户名格式不正确',
-            'password.required'=>'密码不能为空',
-            'password.regex'=>'密码格式不正确',
-            'repass.same'=>'两次密码不一致',
-            'email.email'=>'邮箱格式不正确',
-            'phone.required'=>'手机号不能为空',
-            'phone.regex'=>'手机号格式不正确'
+        // //表单验证
+        // $this->validate($request, [
+        //     'username' => 'required',
+        //     'password' => 'required|regex:/^\S{6,12}$/',
+        //     'repass'=>'same:password',
+        //     'email'=>'email',
+        //     'phone'=>'required|regex:/^1[3456789]\d{9}$/',            
+        // ],[
+        //     'username.required'=>'用户名不能为空',
+        //     'username.regex'=>'用户名格式不正确',
+        //     'password.required'=>'密码不能为空',
+        //     'password.regex'=>'密码格式不正确',
+        //     'repass.same'=>'两次密码不一致',
+        //     'email.email'=>'邮箱格式不正确',
+        //     'phone.required'=>'手机号不能为空',
+        //     'phone.regex'=>'手机号格式不正确'
 
-        ]);*/
+        // ]);
 
         $res = $request->except(['_token','profile','repass']);
 
@@ -109,7 +109,7 @@ class UserController extends Controller
         if($request->hasFile('profile')){
 
             //设置名字
-            $name = str_random(10).time();
+             $name = str_random(10).time();
 
             //获取后缀
             $suffix = $request->file('profile')->getClientOriginalExtension();

@@ -34,8 +34,8 @@ Route::group(['middleware'=>'login'],function(){
 	Route::resource('admin/link','admin\LinkController');
 	Route::any('admin/link/update/{id}','admin\LinkController@update');
 	Route::any('admin/logout','admin\LoginController@logout');
-
-
+	//轮播
+	Route::resource('admin/lunbo','admin\LunboController');
 });
 
 
