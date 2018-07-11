@@ -41,12 +41,12 @@
 	            <div class="dataTables_filter" id="DataTables_Table_1_filter">
 	                <label>
 	                    商品名:
-	                    <input type="text" name='gname' value="{{$request->gname}}" aria-controls="DataTables_Table_1">
+	                    <input type="text" name='rgname' value="{{$request->rgname}}" aria-controls="DataTables_Table_1">
 	                </label>
 
                     <label>
                         价格:
-                        <input type="text" name='price' value="{{$request->price}}" aria-controls="DataTables_Table_1">
+                        <input type="text" name='rprice' value="{{$request->rprice}}" aria-controls="DataTables_Table_1">
                     </label>
 
 	                <button class='btn btn-info'>搜索</button>
@@ -110,7 +110,7 @@
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
                         <td class="">
-                            {{$v->id}}
+                            {{$v->rgid}}
                         </td>
 
                         <td class=" ">
@@ -118,34 +118,34 @@
                             
                         </td>
                         <td class="uname">
-                            {{$v->gname}}
+                            {{$v->rgname}}
                         </td>
                         <td class=" ">
-                            {{$v->price}}
+                            {{$v->rprice}}
                         </td>
                         <td class=" ">
-                            {{$v->color}}
+                            {{$v->rcolor}}
                             
                         </td>
                          <td class=" ">
-                            {{$v->size}}
+                            {{$v->rsize}}
                             
                         </td>
 
                         <td class=" ">
-                            {!!$v->content!!}
+                            {!!$v->rcontent!!}
                             
                         </td>
 
                         <td class=" ">
-                            {{checkfun($v->status)}}
+                            {{checkfun($v->rstatus)}}
                             
                         </td>
 
                          <td class=" ">
-                            <a href="/admin/goods/{{$v->id}}/edit" class='btn btn-info'>修改</a>
+                            <a href="/admin/goods/{{$v->rgid}}/edit" class='btn btn-info'>修改</a>
 
-                            <form action="/admin/goods/{{$v->id}}" method='post' style='display:inline'>
+                            <form action="/admin/goods/{{$v->rgid}}" method='post' style='display:inline'>
                                 
                                 {{csrf_field()}}
 

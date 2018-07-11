@@ -199,14 +199,14 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-list"></i>评论管理</a>
+                        <a href="#"><i class="icon-comments"></i>评论管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/comment/create">添加评论</a></li>
                             <li><a href="/admin/comment">评论列表</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-list"></i>公告管理</a>
+                        <a href="#"><i class="icon-envelope"></i>公告管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/gonggao/create">添加公告</a></li>
                             <li><a href="/admin/gonggao">浏览公告</a></li>

@@ -13,8 +13,10 @@ class HomeController extends Controller
     {
     	$arr = DB::table('gonggao')->get();
     	$aa = DB::table('link')->get();
+    	$lb = DB::table('goodspic')->get();
+    	$guanggao = DB::table('guanggao')->get();
     	// dd($res);
 
-    	return view('home.home',['arr'=>$arr,'aa'=>$aa]);
+    	return view('home.home',['arr'=>$arr,'aa'=>$aa,'lb'=>$lb,'guanggao'=>$guanggao]);
     }
 }

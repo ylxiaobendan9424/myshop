@@ -30,7 +30,10 @@ Route::group(['middleware'=>'login'],function(){
 
 	Route::any('admin/ajaxuser','admin\UserController@ajaxuser');
 
-	Route::resource('admin/category','admin\categoryController');
+	Route::resource('admin/category','admin\CategoryController');
+
+	Route::resource('admin/goods','admin\GoodsController');
+	
 
 	Route::resource('admin/tjgoods','admin\TjgoodsController');
 
