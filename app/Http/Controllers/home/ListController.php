@@ -4,8 +4,9 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
 
+use App\Models\Admin\Goods;
+use DB;
 class ListController extends Controller
 {
     //
@@ -13,8 +14,9 @@ class ListController extends Controller
     {	
     	// echo 1232;die;
     	$aa = DB::table('link')->get();
+    	$data = Goods::with('gs')->get();
 
-    	return view('home.list',['aa'=>$aa]);
+    	return view('home.index.list',['aa'=>$aa,'data'=>$data]);
     }
 
     

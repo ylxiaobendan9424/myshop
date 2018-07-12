@@ -56,74 +56,10 @@
         <div id="mws-user-tools" class="clearfix">
         
         	<!-- Notifications -->
-        	<div id="mws-user-notif" class="mws-dropdown-menu">
-            	<a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i class="icon-exclamation-sign"></i></a>
-                
-                <!-- Unread notification count -->
-                <span class="mws-dropdown-notif">35</span>
-                
-                <!-- Notifications dropdown -->
-                <div class="mws-dropdown-box">
-                	<div class="mws-dropdown-content">
-                        <ul class="mws-notifications">
-                        	<li class="read">
-                            	<a href="#">
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
-                        	<li class="read">
-                            	<a href="#">
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                          
-                        </ul>
-                        <div class="mws-dropdown-viewall">
-	                        <a href="#">View All Notifications</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        	
             
             <!-- Messages -->
-            <div id="mws-user-message" class="mws-dropdown-menu">
-            	<a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i class="icon-envelope"></i></a>
-                
-                <!-- Unred messages count -->
-                <span class="mws-dropdown-notif">35</span>
-                
-                <!-- Messages dropdown -->
-                <div class="mws-dropdown-box">
-                	<div class="mws-dropdown-content">
-                        <ul class="mws-messages">
-                        	<li class="read">
-                            	<a href="#">
-                                    <span class="sender">John Doe</span>
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
-                        
-                        </ul>
-                        <div class="mws-dropdown-viewall">
-	                        <a href="#">View All Messages</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
@@ -166,21 +102,23 @@
             </div>
             
         	<!-- Searchbox -->
-        	<div id="mws-searchbox" class="mws-inset">
-            	<form action="typography.html">
-                	<input type="text" class="mws-search-input" placeholder="Search...">
-                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
-                </form>
-            </div>
+        	
             
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-users"></i>用户管理</a>
+                        <a href="#"><i class="icon-add-contact"></i>用户管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/user/create">添加用户</a></li>
                             <li><a href="/admin/user">浏览用户</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>角色管理</a>
+                        <ul class='closed'>
+                            <li><a href="/">添加角色</a></li>
+                            <li><a href="/">浏览角色</a></li>
                         </ul>
                     </li>
 
@@ -199,6 +137,21 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#"><i class="icon-shopping-cart"></i>特价商品管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/tjgoods/create">添加特价商品</a></li>
+                            <li><a href="/admin/tjgoods">浏览特价商品</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-hand-right"></i>订单管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/comment/create">浏览订单</a></li>
+                            <li><a href="/admin/comment">订单详情</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="#"><i class="icon-comments"></i>评论管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/comment/create">添加评论</a></li>
@@ -213,13 +166,27 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-list"></i>特价商品管理</a>
+                        <a href="#"><i class="icon-direction"></i>广告管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/tjgoods/create">添加特价商品</a></li>
-                            <li><a href="/admin/tjgoods">浏览特价商品</a></li>
+                            <li><a href="/admin/guanggao/create">添加广告</a></li>
+                            <li><a href="/admin/guanggao">广告浏览</a></li>
                         </ul>
                     </li>
                     
+                     <li>
+                        <a href="#"><i class="icon-link"></i>友情链接</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/link/create">添加链接</a></li>
+                            <li><a href="/admin/link">浏览链接</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-pictures"></i>轮播管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/lunbo/create">添加轮播</a></li>
+                            <li><a href="/admin/lunbo">浏览轮播</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
 

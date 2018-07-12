@@ -15,8 +15,15 @@ class HomeController extends Controller
     	$aa = DB::table('link')->get();
     	$lb = DB::table('goodspic')->get();
     	$guanggao = DB::table('guanggao')->get();
+    	$lunbo = DB::table('lunbo')->get();
+        $cart = DB::table('cart')->get();
     	// dd($res);
 
-    	return view('home.home',['arr'=>$arr,'aa'=>$aa,'lb'=>$lb,'guanggao'=>$guanggao]);
+    	return view('home.home',['arr'=>$arr,'aa'=>$aa,'lb'=>$lb,'guanggao'=>$guanggao,'lunbo'=>$lunbo,'cart'=>$cart]);
     }
+    public function show()
+    {
+        
+    }
+    
 }

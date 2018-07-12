@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" href="/homes/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link type="text/css" rel="stylesheet" href="/homes/info/css/alpha1.css" >
+    <link type="text/css" rel="stylesheet" href="/homes/info/css/alpha2.css" >
     <!--[if lt IE 9]>
     	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -222,6 +225,8 @@
     <!-- Footer Scripts
     ============================================= -->
     <script type="text/javascript" src="/homes/js/functions.js"></script>
+@section('js')
 
+@show
 </body>
 </html>
