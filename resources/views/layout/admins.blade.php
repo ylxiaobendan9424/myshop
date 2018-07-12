@@ -115,8 +115,8 @@
                       <li>
                         <a href="#"><i class="icon-users"></i>角色管理</a>
                         <ul class='closed'>
-                            <li><a href="/">添加角色</a></li>
-                            <li><a href="/">浏览角色</a></li>
+                            <li><a href="/admin/role/create">添加角色</a></li>
+                            <li><a href="/admin/role">浏览角色</a></li>
                         </ul>
                     </li>
 

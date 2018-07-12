@@ -19,6 +19,9 @@ Route::get('/', function () {
 	 Route::any('/admin/dologin','admin\LoginController@dologin');
 
 	 Route::any('admin/captcha','admin\LoginController@captcha');
+	 //修改角色
+	Route::any('admin/test/{id}','admin\UserController@test');
+	Route::any('admin/dotest/{id}','admin\UserController@dotest');
 //后台路由组
 Route::group(['middleware'=>'login'],function(){
 
@@ -36,6 +39,8 @@ Route::group(['middleware'=>'login'],function(){
 	Route::any('admin/logout','admin\LoginController@logout');
 	//轮播
 	Route::resource('admin/lunbo','admin\LunboController');
+	//角色管理
+	Route::resource('admin/role','admin\RoleController');
 });
 
 

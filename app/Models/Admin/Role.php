@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\admin;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Role extends Model
 {
     //
-    /**
+     /**
      * 与模型关联的数据表
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'role';
 
     protected $primaryKey = 'id';
 
@@ -24,5 +24,5 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['username','password','email','phone','profile','status','token','role'];
+    protected $fillable = ['rolename'];
 }

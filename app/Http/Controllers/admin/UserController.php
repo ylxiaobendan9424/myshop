@@ -8,6 +8,7 @@ use Config;
 use Hash;
 use App\Models\Admin\User;
 use App\Http\Requests\FormRequest;
+use App\Models\Admin\Role;
 
 class UserController extends Controller
 {
@@ -252,7 +253,46 @@ class UserController extends Controller
 
 
     }
+    public function test($id)
+    {
+        // echo 1;
+        // //显示修改页面
+         $data = Role::all();
+         // dump($data);
 
+        $res = User::find($id);
+        // // dump($res);
+        return view('admin.user.role',[
+            'title'=>'角色修改页面',
+            'data'=>$data,
+            'res'=>$res
+
+            ]);
+
+    }
+    
+
+    public function dotest(Request $request, $id)
+    {
+
+        //接收表单数据数据,进行update修改
+          $res = $request->except('_token');
+
+          // dump($res);
+          //模型
+                    try{
+
+                    $data = User::where('id',$id)->update($res);
+                    if($data){
+
+                        return redirect('/admin/user')->with('success','修改角色成功');
+                        }
+                    }catch(\Exception $e){
+                        return back()->with('error');
+                    }
+          
+        
+    }
 
 
     public function ajaxuser(Request $request)
