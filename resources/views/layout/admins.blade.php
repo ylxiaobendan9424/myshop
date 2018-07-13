@@ -114,7 +114,9 @@
                             <li><a href="/admin/user">浏览用户</a></li>
                         </ul>
                     </li>
-                    <li>
+
+                  <li>
+
                         <a href="#"><i class="icon-users"></i>角色管理</a>
                         <ul class='closed'>
                             <li><a href="/">添加角色</a></li>
@@ -129,6 +131,7 @@
                             <li><a href="/admin/category">浏览分类</a></li>
                         </ul>
                     </li>
+
                     <li>
                         <a href="#"><i class="icon-shopping-cart"></i>商品管理</a>
                         <ul class='closed'>
@@ -188,8 +191,8 @@
                         </ul>
                     </li>
 
-                </ul>
 
+                </ul>
             </div>         
         </div>
         

@@ -521,28 +521,28 @@
 @endsection
 
 @section('footer')
-        <footer id="footer" class="dark">
+<footer id="footer" class="dark">
 
 
-            <!-- Copyrights
-            ============================================= -->
-             <div class="container clearfix">
-                    <center>
-                    <div class="col-md-12 clearfix" style="height:60px">
-                        
-                        @foreach($aa as $k => $v)
-                            <a href="{{$v->url}}">{{$v->name}}</a>&nbsp;|&nbsp;
+    <!-- Copyrights
+    ============================================= -->
+     <div class="container clearfix">
+            <center>
+            <div class="col-md-12 clearfix" style="height:60px">
+                
+                @foreach($aa as $k => $v)
+                    <a href="{{$v->url}}">{{$v->name}}</a>&nbsp;|&nbsp;
 
 
-                        @endforeach
-                        
-                    </div>
-                    </center>
+                @endforeach
+                
+            </div>
+            </center>
 
-                    
+            
 
-                </div>
-            <!-- #copyrights end -->
+        </div>
+    <!-- #copyrights end -->
 
-        </footer>
-        @endsection
+</footer>
+@endsection

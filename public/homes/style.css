@@ -212,7 +212,11 @@ span.middot {
 
 .rightmargin-lg { margin-right: 80px !important; }
 
+<<<<<<< HEAD
 .topmargin-lg { margin-top: 10px !important; }
+=======
+.topmargin-lg { margin-top: 80px !important; }
+>>>>>>> origin/tiepen
 
 .bottommargin-lg { margin-bottom: 80px !important; }
 
@@ -12924,6 +12928,9 @@ body:not(.no-transition) #wrapper,
 	padding:0!important
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/tiepen
