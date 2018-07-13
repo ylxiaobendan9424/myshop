@@ -44,9 +44,9 @@ class RegisterController extends Controller
             //发送邮件
             Mail::send('email.remind', ['id'=>$id,'token'=>$token], function($m) use ($res) {
 
-                $m->from(env('MAIL_USERNAME'), '百度网-人力资源部');
+                $m->from(env('MAIL_USERNAME'), '爱购网-人力资源部');
 
-                $m->to($res['email'], $res['username'])->subject('百度网-入职邀请');
+                $m->to($res['email'], $res['username'])->subject('爱购网-入职邀请');
             });
 
             return view('home.register.tixing');

@@ -66,7 +66,7 @@
             
             	<!-- User Photo -->
             	<div id="mws-user-photo">
-                	<img src="{{session('profile')}}" alt="User Photo">
+                	<img src="{{session('img')}}" alt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
@@ -75,7 +75,7 @@
                         Hello, {{session('uname')}}
                     </div>
                     <ul>
-                    	<li><a href="/">修改头像</a></li>
+                    	{{--<li><a href="/admin/user/touxiang">修改头像</a></li>--}}
                         <li><a href="/">修改密码</a></li>
                         <li><a href="/admin/logout">退出</a></li>
                     </ul>
@@ -154,8 +154,8 @@
                     <li>
                         <a href="#"><i class="icon-comments"></i>评论管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/comment/create">添加评论</a></li>
-                            <li><a href="/admin/comment">评论列表</a></li>
+                            
+                            <li><a href="/admin/comment/index">评论列表</a></li>
                         </ul>
                     </li>
                     <li>

@@ -15,22 +15,13 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index()
+    {   
+        $comment = Comment::get();
+        $uname = session('uname');
+        // dd($comment[0]);
 
-        // $res = DB::table('comment')->get();
-        // dd($res);
-        $res = Comment::where('goods_id','1'.$request->input('search').'%')->paginate($request->input('num',10));
-        //dd($res['num']);
-        $arr = ['num'=>$request->input('num'),'search'=>$request->input('search')];
-
-        return view('admin.comment.index',[
-                'title'=>'评论的列表页面',
-                'res'=>$res,
-                'request'=>$request
-                
-            ]);  
-         
+        return view('/admin/Comment/index',['title'=>'浏览评论','comment'=>$comment,'uname'=>$uname]);
     }
 
     /**
@@ -41,90 +32,34 @@ class CommentController extends Controller
     public function create()
     {
         //
-       return view('admin.comment.add',[
+        session(['uname'=>'admins']);
+       return view('home.comment.create',[
             'title'=>'添加评论',
 
             ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // 添加到数据库
+    public function insert(Request $request)
     {
-        //表单验证
+        $res = $request -> except('_token');
+            
+        $user = Users::where('uname',session('uname'))->with('user_detail')->first();
+        if(!$user){
+            return redirect('/home/login')->with('error','您的账号存在异常请重新登录');
+        }
+        // dd($user);
+        // dd($user -> user_detail['user_id']);
+        $res['create_at'] = date('Y-m-d H:i:s',time());
+        // dd($res);
+        $res['user_id'] = $user->user_detail['user_id'];
+        $res['g_id'] = 20;
 
-        // dump($request->all());
-        $this->validate($request,[
-            'goods_id'=>'required',
-            ],[
-
-            'goods_id.required'=>'商品id不能为空'
-            //'goods_id.regex'=>'商品id格式不正确',
-            ]);
-        $res = $request->except(['_token','profile','repass']);
-         // dd($res);
-          try{
-            $data = Comment::create($res);
-            // dd($data);
-
-
-            if($data){
-                return redirect('/admin/comment')->with('success','添加成功');
-            }
-        }catch(\Exception $e){
-
-            return back();
-
+        $comment = Comment::create($res);
+        if($comment){
+            return back()->with('success','评论成功');
         }
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return back()->with('error','评论失败');
     }
 }

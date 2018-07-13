@@ -62,6 +62,17 @@
             letter-spacing: 3px;
             font-family: 'Raleway', sans-serif;
         }
+        /*广告*/
+            #budong{
+                position:fixed;
+                left:0px;
+                top:90px;
+                
+            }
+            #budong button span{
+                display:block;
+                float:right;
+            }
 
     </style>
 
@@ -404,6 +415,14 @@
         <!-- Content
         ============================================= -->
         @section('content')
+        <div id="budong"><!--广告-->
+        @foreach($guanggao as $k=>$v)
+            <img src="{{$v->gimage}}" width="150px" height="400px">
+            
+            <button onclick="document.getElementById('budong').style.display='none';"><span>X</span></button>
+            </img>
+        @endforeach
+        </div>
         <section id="content">
 
             <div class="content-wrap">

@@ -185,32 +185,7 @@
         
         @section('footer')
         
-            <footer id="footer" class="dark">
-
-
-                        <!-- Copyrights
-                        ============================================= -->
-                        <!-- <div id="copyrights"> -->
-
-                            <div class="container clearfix">
-                                <center>
-                                <div class="col-md-12 clearfix" style="height:60px">
-                                    
-                                    @foreach($aa as $k => $v)
-                                        <a href="{{$v->url}}">{{$v->name}}</a>&nbsp;|&nbsp;
-
-                                    @endforeach
-                                    
-                                </div>
-                                </center>
-
-                                
-
-                            </div>
-
-                        <!-- </div> --><!-- #copyrights end -->
-            </footer>
-
+           
 
         @show
 		

@@ -29,6 +29,8 @@ Route::group(['middleware'=>'login'],function(){
 	Route::resource('admin/user','admin\UserController');
 
 	Route::any('admin/ajaxuser','admin\UserController@ajaxuser');
+	
+	Route::any('admin/users','admin\UserController@touxiang');
 	//类别
 	Route::resource('admin/category','admin\CategoryController');
 	//商品
@@ -39,7 +41,7 @@ Route::group(['middleware'=>'login'],function(){
 	//退出
 	Route::any('admin/logout','admin\LoginController@logout');
 	//评论
-	Route::resource('admin/comment','admin\CommentController');
+	//Route::resource('admin/comment','admin\CommentController');
 	//公告
 	Route::resource('admin/gonggao','admin\GonggaoController');
 	Route::any('admin/gonggao/update/{id}','admin\GonggaoController@update');
@@ -92,4 +94,10 @@ Route::group([],function(){
 
 
 });
+// 评价管理
+Route::get('/admin/comment/index','admin\CommentController@index');  // 显示页面
+
+Route::get('/home/comment/create','admin\CommentController@create');  /// 添加评论页面
+Route::post('/home/comment/insert','admin\CommentController@insert');  /// 添加评论操作
+
 

@@ -8,6 +8,7 @@ use Config;
 use Hash;
 use App\Models\Admin\User;
 use App\Http\Requests\FormRequest;
+use DB;
 
 class UserController extends Controller
 {
@@ -17,7 +18,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
+
     {
+        $aa = DB::table('link')->get();
+        
         //dump($request->all());
 
        /* where('active', 1)
@@ -58,7 +62,8 @@ class UserController extends Controller
             return view('admin.user.index',[
                 'title'=>'用户的列表页面',
                 'res'=>$user, 
-                'request'=> $request
+                'request'=> $request,
+                'aa'=>$aa
             ]);    
     }
 
@@ -199,6 +204,8 @@ class UserController extends Controller
 
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
+            $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
+            session(['img'=>$res['profile']]);
 
         }
 
@@ -277,7 +284,24 @@ class UserController extends Controller
         }
     }
 
+    public function touxiang(Request $request)
+    {   
 
+        // dd(session()->all());
+        // 
+        $id = $request->input('id');
+
+        // echo $id;
+        $img = \DB::table('user')->where('id',$id)->get();
+
+
+      
+        return view('admin.layout.admins',['img'=>$img]);
+    
+
+         //通过session或取当前用户信息
+         
+    }
    
 
 
