@@ -134,7 +134,7 @@
                                 <button href="" class='btn btn-warning'>删除</button>
 
                             </form>
-                             <a href="/admin/test/{{$v->id}}" class='btn btn-info'>角色修改</a>
+                            
                         </td>
                     </tr>
                  

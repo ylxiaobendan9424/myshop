@@ -8,8 +8,7 @@ use Config;
 use Hash;
 use App\Models\Admin\User;
 use App\Http\Requests\FormRequest;
-use App\Models\Admin\Role;
-
+use DB;
 class UserController extends Controller
 {
     /**
@@ -18,7 +17,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
+
     {
+        $aa = DB::table('link')->get();
+        
         //dump($request->all());
 
        /* where('active', 1)
@@ -59,7 +61,8 @@ class UserController extends Controller
             return view('admin.user.index',[
                 'title'=>'用户的列表页面',
                 'res'=>$user, 
-                'request'=> $request
+                'request'=> $request,
+                'aa'=>$aa
             ]);    
     }
 
@@ -85,24 +88,24 @@ class UserController extends Controller
      */
     public function store(FormRequest $request)
     {
-        // //表单验证
-        // $this->validate($request, [
-        //     'username' => 'required',
-        //     'password' => 'required|regex:/^\S{6,12}$/',
-        //     'repass'=>'same:password',
-        //     'email'=>'email',
-        //     'phone'=>'required|regex:/^1[3456789]\d{9}$/',            
-        // ],[
-        //     'username.required'=>'用户名不能为空',
-        //     'username.regex'=>'用户名格式不正确',
-        //     'password.required'=>'密码不能为空',
-        //     'password.regex'=>'密码格式不正确',
-        //     'repass.same'=>'两次密码不一致',
-        //     'email.email'=>'邮箱格式不正确',
-        //     'phone.required'=>'手机号不能为空',
-        //     'phone.regex'=>'手机号格式不正确'
+        //表单验证
+      /*  $this->validate($request, [
+            'username' => 'required|regex:/^\w{6,12}$/',
+            'password' => 'required|regex:/^\S{6,12}$/',
+            'repass'=>'same:password',
+            'email'=>'email',
+            'phone'=>'required|regex:/^1[3456789]\d{9}$/',            
+        ],[
+            'username.required'=>'用户名不能为空',
+            'username.regex'=>'用户名格式不正确',
+            'password.required'=>'密码不能为空',
+            'password.regex'=>'密码格式不正确',
+            'repass.same'=>'两次密码不一致',
+            'email.email'=>'邮箱格式不正确',
+            'phone.required'=>'手机号不能为空',
+            'phone.regex'=>'手机号格式不正确'
 
-        // ]);
+        ]);*/
 
         $res = $request->except(['_token','profile','repass']);
 
@@ -110,7 +113,7 @@ class UserController extends Controller
         if($request->hasFile('profile')){
 
             //设置名字
-             $name = str_random(10).time();
+            $name = str_random(10).time();
 
             //获取后缀
             $suffix = $request->file('profile')->getClientOriginalExtension();
@@ -118,9 +121,10 @@ class UserController extends Controller
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
         }
+
         //存数据表
         $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
-        
+
         //密码加密
         $res['password'] = Hash::make($request->input('password'));
 
@@ -177,14 +181,15 @@ class UserController extends Controller
         //表单验证
 
 
-        // $foo = User::find($id);
+        $foo = User::find($id);
 
-        // $urls = $foo->profile;
+        $urls = $foo->profile;
 
-        // // dd($urls);
+        // dd($urls);
 
-        // $info = '@'.unlink('.'.$urls);
-        // if(!$info)  return;
+        $info = '@'.unlink('.'.$urls);
+
+        if(!$info)  return;
 
         $res = $request->except('_token','_method','profile');
 
@@ -253,46 +258,7 @@ class UserController extends Controller
 
 
     }
-    public function test($id)
-    {
-        // echo 1;
-        // //显示修改页面
-         $data = Role::all();
-         // dump($data);
 
-        $res = User::find($id);
-        // // dump($res);
-        return view('admin.user.role',[
-            'title'=>'角色修改页面',
-            'data'=>$data,
-            'res'=>$res
-
-            ]);
-
-    }
-    
-
-    public function dotest(Request $request, $id)
-    {
-
-        //接收表单数据数据,进行update修改
-          $res = $request->except('_token');
-
-          // dump($res);
-          //模型
-                    try{
-
-                    $data = User::where('id',$id)->update($res);
-                    if($data){
-
-                        return redirect('/admin/user')->with('success','修改角色成功');
-                        }
-                    }catch(\Exception $e){
-                        return back()->with('error');
-                    }
-          
-        
-    }
 
 
     public function ajaxuser(Request $request)

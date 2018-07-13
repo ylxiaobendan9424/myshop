@@ -49,7 +49,7 @@
 	<div class="container clearfix">
 		<h1>购物车</h1>
 		<ol class="breadcrumb">
-			<li><a href="#">首页</a></li>
+			<li><a href="/home">首页</a></li>
 			<li><a href="#">购物车</a></li>
 		</ol>
 	</div>

@@ -21,11 +21,16 @@ class GonggaoController extends Controller
                 paginate($request->input('num',10));
         //dd($res['num']);
         $arr = ['num'=>$request->input('num'),'search'=>$request->input('search')];
+
+        $i = 1;
+
         
         return view('admin.gonggao.index',[
             'title'=>'公告的列表页',  
             'res'=>$res,
-            'arr'=>$arr
+            'arr'=>$arr,
+            'i' => $i
+
             ]);
     }
 
@@ -53,7 +58,7 @@ class GonggaoController extends Controller
         //
         $this->validate($request, [
             'title' => 'required',
-            'url' => 'required|regex:/^\S{1,50}$/',          
+            'url' => 'required|regex:/^\S{1,150}$/',          
         ],[
             'title.required'=>'公告标题名不能为空',
             //'title.regex'=>'公告标题名格式不正确',
@@ -115,7 +120,7 @@ class GonggaoController extends Controller
         //
         $this->validate($request, [
             //'title' => 'required',
-            'url' => 'required|regex:/^\S{1,50}$/',          
+            'url' => 'required|regex:/^\S{1,150}$/',          
         ],[
             'title.required'=>'公告标题不能为空',
             //'title.regex'=>'公告标题格式不正确',
@@ -152,4 +157,5 @@ class GonggaoController extends Controller
         
         }
     }
+
 }

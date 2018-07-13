@@ -11,9 +11,10 @@ class CartController extends Controller
     //
     public function cart()
     {
+        $aa = DB::table('link')->get();
     	$res = DB::table('cart')->get();
 
-    	return view('home.cart.cart',['res'=>$res]);
+    	return view('home.cart.cart',['res'=>$res,'aa'=>$aa]);
     }
 
     public function ajaxcart(Request $request)
