@@ -1,38 +1,58 @@
-@extends('homes')
-@section('title',$title)
+@extends('layout.homes')
+@section('title','评论')
+
+@section('page')
+<section id="page-title">
+
+	<div class="container clearfix">
+		<h1>评论</h1>
+		<ol class="breadcrumb">
+
+			<li><a href="/home">首页</a></li>
+
+			<li><a href="#">评论</a></li>
+		</ol>
+	</div>
+
+</section><!-- #page-title end -->
+
+@endsection
 @section('content')
 <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
 <div class="container">
-@if(count($errors) > 0)
-        <div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                <ul>
-                    @foreach($errors -> all() as $error)
-                       <li>{{ $error }}</li>
-                       @endforeach
-                </ul>        
-        </div>
-        @endif
-<form action="/home/comment/insert" method="post">
-	<b class="col-sm-3" style="font-size:40px">商品评价:</b>
-  	<div class="form-group">
-  		<div class="col-sm-6" style="font-size:40px">
-	  		<div class="col-sm-7 pfq">
-		  		<b id='1'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-		  		<b id='2'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-		  		<b id='3'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-		  		<b id='4'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-		  		<b id='5'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-  			</div>
-  		</div>
-    	<label for="exampleInputFile"></label>
-    	<textarea class="form-control" rows="4" name="content" clos="100" style="margin-top:80px;"></textarea>
- 	</div>
-  	<button type="submit" class="btn btn-info">评论</button>
-  	{{ csrf_field() }}
-</form>
+	@if(count($errors) > 0)
+	<div class="alert alert-danger alert-dismissable">
+	        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+	        <ul>
+	            @foreach($errors -> all() as $error)
+	               <li>{{ $error }}</li>
+	               @endforeach
+	        </ul>        
+	</div>
+	@endif
+	
+	
+
+	<form action="/home/comment/insert" method="post">
+		<b class="col-sm-3" style="font-size:40px">商品评价:</b>
+	  	<div class="form-group">
+	  		<div class="col-sm-6" style="font-size:40px">
+		  		<div class="col-sm-7 pfq">
+			  		<b id='1'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
+			  		<b id='2'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
+			  		<b id='3'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
+			  		<b id='4'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
+			  		<b id='5'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
+	  			</div>
+	  		</div>
+	    	<label for="exampleInputFile"></label>
+	    	<textarea class="form-control" rows="4" name="content" clos="100" style="margin-top:80px;"></textarea>
+	 	</div>
+	  	<button type="submit" class="btn btn-info">评论</button>
+	  	{{ csrf_field() }}
+	</form>
 </div>
-<script src="/admin/js/jquery.min.js"></script>
+<!-- <script src="/admins/js/libs/jquery.min.js"></script> -->
 <script>
 	$('#1').click(function(){
 		$(this).replaceWith("<b id='1'><input name='stars' value='1' style='border:solid 0px red;display:none;'/>★</b>");

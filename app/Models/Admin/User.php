@@ -25,4 +25,10 @@ class User extends Model
      * @var array
      */
     protected $fillable = ['username','password','email','phone','profile','status','token'];
+
+    public function user_detail()
+    {
+        return $this-> hasOne('App\Model\Admin\User_detail','user_id');
+    }
+
 }

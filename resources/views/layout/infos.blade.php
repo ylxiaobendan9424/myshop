@@ -78,8 +78,8 @@
 								<!--个人资产-->
 								
 							</div>
+							@section('content')
 							<div class="box-container-bottom"></div>
-							<img src="/admins/images/xiao/psb.jpg" alt="">
 
 							<!--订单 -->
 							
@@ -90,7 +90,7 @@
 
 							<!--收藏夹 -->
 							
-
+							@show
 						</div>
 					</div>
 					

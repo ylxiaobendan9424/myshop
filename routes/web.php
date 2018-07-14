@@ -84,6 +84,8 @@ Route::group([],function(){
 
 	//个人信息
 	Route::get('/info/info','home\InfoController@index');
+	Route::get('/info/gerenxinxi','home\GerenxinxiController@index');
+
 
 	//购物车
 	
@@ -98,6 +100,7 @@ Route::get('/admin/comment/index','admin\CommentController@index');  // 显示�
 
 Route::get('/home/comment/create','admin\CommentController@create');  /// 添加评论页面
 Route::post('/home/comment/insert','admin\CommentController@insert');  /// 添加评论操作
+Route::post('/home/comment/destroy/{id}','admin\CommentController@destroy'); 
 
 
 
