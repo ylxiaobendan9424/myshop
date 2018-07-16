@@ -49,9 +49,7 @@
 	<div class="container clearfix">
 		<h1>购物车</h1>
 		<ol class="breadcrumb">
-
 			<li><a href="/home">首页</a></li>
-
 			<li><a href="#">购物车</a></li>
 		</ol>
 	</div>
@@ -88,15 +86,19 @@
 					@foreach($res as $k => $v)
 					<tr class="cart_item">
 						<td class="cart-product-thumbnail">
-							<input type="checkbox">
+							<input type="checkbox" ids="{{$v->gid}}">
 						</td>
 
 						<td class="cart-product-thumbnail">
-							<a href="#"><img width="64" height="64" src="{{$v->gimg}}" alt="Pink Printed Dress"></a>
+							@foreach($arr as $k1=>$v1)
+							@if($v->gid == $v1->gid)
+							<a href="#"><img width="64" height="64" src="{{$v1->gpic}}" alt="Pink Printed Dress"></a>
+							@endif
+							@endforeach
 						</td>
 
 						<td class="cart-product-name">
-							<a href="#">{{$v->name}}</a>
+							<a href="#">{{$v->gname}}</a>
 						</td>
 
 						<td class="cart-product-price">
@@ -113,14 +115,14 @@
 
 						<td class="cart-product-quantity">
 							<div class="quantity clearfix">
-								<input type="button" value="-" class="minus">
-								<input type="text" name="quantity" value="1" class="qty" />
-								<input type="button" value="+" class="plus">
+								<input type="button" value="-" class="minus" min="{{$v->gid}}">
+								<input type="text" name="quantity" value="{{$v->num}}" class="qty" />
+								<input type="button" value="+" class="plus" plu="{{$v->gid}}">
 							</div>
 						</td>
 
 						<td class="cart-product-subtotal">
-							¥<span class="xiaoji">{{$v->price}}</span>
+							¥<span class="xiaoji">{{$v->num*$v->price}}</span>
 						</td>
 
 						<td class="cart-product-remove">
@@ -136,7 +138,7 @@
 								
 								<div class="col-md-12 col-xs-12 nopadding">
 									
-									<a href="shop.html" class="button button-3d notopmargin fright">结算</a>
+									<a href="/home/dizhi" class="button button-3d notopmargin fright">结算</a>
 								</div>
 							</div>
 						</td>
@@ -245,6 +247,12 @@
 		$(this).parents('tr').find('.xiaoji').text(accMul(pc,num));
 	
 		totals();
+		var id = $(this).attr('plu');
+		$.post('/home/plu',{'id':id},function(data){
+			console.log(data);
+		})
+		// console.log(id);
+
 	})
 
 	//减法运算
@@ -280,8 +288,11 @@
 		//加完之后让小计发生改变
 
 		$(this).parents('tr').find('.xiaoji').text(accMul(pc,mins));
-
 		totals();
+		var id = $(this).attr('min');
+		$.post('/home/min',{'id':id},function(data){
+			console.log(data);
+		})
 
 	})
 
@@ -373,10 +384,21 @@
 
 		})
 
+	})
+//单机多选框选择商品
+
+$(':checkbox').click(function(){
+
+
+		totals();
+		var id = $(this).attr('ids');
+		$.post('/home/order',{'id':id},function(data){
+			console.log(data);
+		})
+		// console.log(id);
+
 
 	})
-
-
 
 
 </script>

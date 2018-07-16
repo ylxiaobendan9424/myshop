@@ -15,19 +15,29 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request,$id)
     {   
-        //$comment = DB::table('comment')->get();
-        $res = Comment::where('content','like','%'.$request->input('search').'%')->
-                paginate($request->input('num',10));
-        //dd($res['num']);
-        $arr = ['num'=>$request->input('num'),'search'=>$request->input('search')];
-        $comment = Comment::get();
         
-        $uname = session('uname');
-        // dd($comment[0]);
+        $comment = DB::table('orderxiangqing')
+            ->Join('orders', 'order.o_id', '=', 'orderxiangqing.o_id')
+            ->Join('goods', 'goods.id', '=', 'orderxiangqing.g_id')
+            ->get();
+            foreach ($comment as $k => $v) {
+                # code...
+                $v;
 
-        return view('/admin/Comment/index',['title'=>'浏览评论','comment'=>$comment,'uname'=>$uname,'res'=>$res,'arr'=>$arr]);
+            };
+
+        $pic=DB::table('goodspic')->where('gid',$id)->get();
+         foreach ($pic as $k1 => $v2) {
+            # code.
+             $v2 ;
+         }
+
+
+
+
+        return view('/admin/Comment/index',['title'=>'浏览评论','v'=>$v,'v2'=>$v2]);
     }
 
     /**
@@ -35,7 +45,7 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request,$id)
     {
         //
         session(['uname'=>'admins']);
@@ -49,34 +59,46 @@ class CommentController extends Controller
     // 添加到数据库
     public function insert(Request $request)
     {
-        $res = $request -> except('_token');
-            
-        $user = User::where('uname',session('uname'))->limit(1);
-        if(!$user){
-            return redirect('/home/login')->with('error','您的账号存在异常请重新登录');
-        }
-        // dd($user);
-        // dd($user -> user_detail['user_id']);
-        $res['create_at'] = date('Y-m-d H:i:s',time());
-        // dd($res);
-        $res['u_id'] = $user['id'];
-        $res['g_id'] = 20;
+        /* $req = $request->all();
+         $req = $request->except(['_token']);
+         
+         $res=DB::table('goodspic')->where('gid',$id)->get();
+         foreach ($res as $k => $v) {
+            # code.
+            $arr = $v ;
+         }
+         //dd($arr);
+          
+         $data = DB::table('orders')->where('oid',$id)->get();
+        // dd($data);
+         foreach ($data as $k => $v) {
+            # code..
+            $v;
+         }
 
-        $comment = Comment::create($res);
-        if($comment){
-            return back()->with('success','评论成功');
-        }
+         $req["o_id"]= $v->o_id;
+         $req["u_id"]= $v->u_id;
+        //$data = $req->except(['_token']);
+          $data = Comment::create($req);
+          $qqq = DB::table('orderdetails')
+            ->Join('goods', 'orderdetails.gid', '=', 'goods.id')
+            ->Join('orders', 'orderdetails.oid', '=', 'orders.oid')
+            ->get();
+           
+            foreach ($qqq as $k => $v) {
+                # code...
+                $v;
 
-        return back()->with('error','评论失败');
-    }
-    public function destroy($id)
-    {
-        //
-        $res = Comment::where('id',$id)->delete();
-        dd($res);
-        if($res){
-            return redirect('/admin/comment')->with('success','删除成功');
-        
-        }
-    }
+            };
+
+           //dd($v);
+          // $data = DB::table('ord')->where('oid',$id)->get()
+         
+        //模型   出错
+      return view('home.comment.commentlist',['data'=>$data,'arr'=>$arr,'v'=>$v]);*/
+
+      return view('home.comment.insert');
+   }
+
+    
 }

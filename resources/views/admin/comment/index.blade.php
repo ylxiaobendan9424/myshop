@@ -12,7 +12,7 @@
     <div class="mws-panel-body no-padding">
         <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
-            <form action="/admin/link" method='get'>
+            <form action="/admin/gonggao" method='get'>
                 <div id="DataTables_Table_1_length" class="dataTables_length">
                     <label>
                         显示
@@ -54,19 +54,11 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 266px;" aria-label="Browser: activate to sort column ascending">
-                            用户名
+                            公告标题
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 247px;" aria-label="Platform(s): activate to sort column ascending">
-                            商品id
-                        </th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 247px;" aria-label="Platform(s): activate to sort column ascending">
-                            评论内容
-                        </th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 247px;" aria-label="Platform(s): activate to sort column ascending">
-                            星级
+                            公告地址
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
@@ -75,41 +67,36 @@
                     </tr>
                 </thead>
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
-                    @foreach($comment as $k=>$v)
-                        <tr class='zong'>
-                            <td>{{$v->id}}</td>
-                            <td>{{$v->u_id}}</td>
-                            <td>{{$v->g_id}} </td>{{--<b> 【{{($uname)}}】</b>--}}
-                            <td>{{$v->content}}</td>
-                            <td>
-                                @if($v->appraise == 0)
-                                ★
-                                @elseif($v->appraise == 1)
-                                ★★
-                                @elseif($v->appraise == 2)
-                                ★★★
-                                @elseif($v->appraise == 3)
-                                ★★★★
-                                @elseif($v->appraise == 4)
-                                ★★★★★
-                                @else
-                                啊哦没有星星啦
-                                @endif
-                                
-                            </td>
-                            <td>    
-                                <form action="/admin/comment/{{$v->id}}" method='post' style='display:inline'>
-                                
-                                    {{csrf_field()}}
 
-                                    {{method_field('DELETE')}}
-                                    <button href="" class='btn btn-warning'>删除</button>
+                    @foreach($res as $k => $v)
 
-                                </form>
+                    <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
+                        <td class="">
+                            {{$i++}}
+                        </td>
+                        <td class=" ">
+                            {{$v->title}}
+                        </td>
+                        <td class=" ">
+                            {{$v->url}}
+                        </td>
+                            <td class=" ">
+                            <a href="/admin/gonggao/{{$v->id}}/edit" class='btn btn-info'>修改</a>
+
+                            <form action="/admin/gonggao/{{$v->id}}" method='post' style='display:inline'>
                                 
-                            </td>
-                        </tr>
+                                {{csrf_field()}}
+
+                                {{method_field('DELETE')}}
+                                <button href="" class='btn btn-warning'>删除</button>
+
+                            </form>
+                            
+                        </td>
+                    </tr>
+                 
                     @endforeach
+               
                 </tbody>
             </table>
 

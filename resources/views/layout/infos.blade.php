@@ -7,10 +7,10 @@
 
 		<title>个人中心</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
-		<link href="../css/personal.css" rel="stylesheet" type="text/css">
-		<link href="../css/systyle.css" rel="stylesheet" type="text/css">
+		<link href="/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/css/systyle.css" rel="stylesheet" type="text/css">
 
 	</head>
 
@@ -114,7 +114,7 @@
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
+							<li><a href="order.html">我的订单</a></li>
 						</ul>
 					</li>
 					
@@ -123,9 +123,9 @@
 						<a href="#">我的小窝</a>
 						<ul>
 							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
+							
 							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
+							
 						</ul>
 					</li>
 

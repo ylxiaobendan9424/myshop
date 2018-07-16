@@ -22,9 +22,9 @@
                          ?>
                         <div class="product clearfix">
                             <div class="product-image">
-                            @foreach($img as $v)
-                                <a href="/home/details"><img src="{{$v->gpic}}" ></a>
-                                <a href="/home/details"><img src="{{$v->gpic}}"></a>
+                             @foreach($img as $v)
+                                <a href="/home/details/{{$k->id}}"><img src="{{$v->gpic}}" ></a>
+                                <a href="/home/details/{{$k->id}}"><img src="{{$v->gpic}}"></a>
                             @endforeach
                               
                                 <div class="product-overlay">

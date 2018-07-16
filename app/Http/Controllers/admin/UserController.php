@@ -9,7 +9,6 @@ use Hash;
 use App\Models\Admin\User;
 use App\Http\Requests\FormRequest;
 use DB;
-
 class UserController extends Controller
 {
     /**
@@ -122,9 +121,10 @@ class UserController extends Controller
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
         }
+
         //存数据表
         $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
-        
+
         //密码加密
         $res['password'] = Hash::make($request->input('password'));
 
@@ -181,14 +181,15 @@ class UserController extends Controller
         //表单验证
 
 
-        // $foo = User::find($id);
+        $foo = User::find($id);
 
-        // $urls = $foo->profile;
+        $urls = $foo->profile;
 
-        // // dd($urls);
+        // dd($urls);
 
-        // $info = '@'.unlink('.'.$urls);
-        // if(!$info)  return;
+        $info = '@'.unlink('.'.$urls);
+
+        if(!$info)  return;
 
         $res = $request->except('_token','_method','profile');
 
@@ -202,8 +203,6 @@ class UserController extends Controller
 
             //移动
             $request->file('profile')->move('./uploads/',$name.'.'.$suffix);
-            $res['profile'] = Config::get('app.path').$name.'.'.$suffix;
-            session(['img'=>$res['profile']]);
 
         }
 
@@ -282,24 +281,7 @@ class UserController extends Controller
         }
     }
 
-    public function touxiang(Request $request)
-    {   
 
-        // dd(session()->all());
-        // 
-        $id = $request->input('id');
-
-        // echo $id;
-        $img = \DB::table('user')->where('id',$id)->get();
-
-
-      
-        return view('admin.layout.admins',['img'=>$img]);
-    
-
-         //通过session或取当前用户信息
-         
-    }
    
 
 

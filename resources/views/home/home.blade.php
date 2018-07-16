@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -120,7 +119,7 @@
                                 @if($v->sub)
                                 <ul>
                                     @foreach($v->sub as $kk=>$vv)
-                                    <li><a href="/home/list"><div>{{$vv->catename}}</div></a>
+                                    <li><a href="/home/list/{{$vv->id}}"><div>{{$vv->catename}}</div></a>
                                         @if($vv->sub)
                                         <ul>
                                             @foreach($vv->sub as $kkk=>$vvv)
@@ -139,8 +138,9 @@
 
                         <!-- Top Cart
                         ============================================= -->
-                        <div id="top-cart">
-                            <a href="cart.blade.php" id="top-cart-trigger"><i class="icon-shopping-cart"></i></a>
+                        <div id="top-cart" style="width:50px;">
+                            <!-- <a href="/home/cart">个人中心</a> -->
+                            <a href="/info/info"><i class="icon-home"></i></a>
                            
                         </div><!-- #top-cart end -->
 
@@ -416,6 +416,7 @@
         <!-- Content
         ============================================= -->
         @section('content')
+        <section id="content">
         <div id="budong"><!--广告-->
         @foreach($guanggao as $k=>$v)
             <img src="{{$v->gimage}}" width="150px" height="400px">
@@ -424,7 +425,6 @@
             </img>
         @endforeach
         </div>
-        <section id="content">
 
             <div class="content-wrap">
 
@@ -847,6 +847,3 @@
 
 </body>
 </html>
-
-
-

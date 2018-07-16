@@ -1,5 +1,43 @@
 @extends('layout.homes')
 @section('title','评论')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<style>
+	.cart-empty{
+		height: 98px;
+	    padding: 80px 0 120px;
+	    color: #333;
+
+	}
+
+	.cart-empty .message{
+		height: 98px;
+	    padding-left: 341px;
+	    background: url(/uploads/no-login-icon.png) 250px 22px no-repeat;
+	}
+
+	.cart-empty .message .txt {
+	    font-size: 14px;
+	}
+	.cart-empty .message li {
+	    line-height: 38px;
+	}
+
+	ol, ul {
+	    list-style: outside none none;
+	}
+
+	.ftx-05, .ftx05 {
+		color: #005ea7;
+	}
+	
+	a {
+	    color: #666;
+	    text-decoration: none;
+	    
+	    font-size:12px;
+	}	
+</style>
 
 @section('page')
 <section id="page-title">
@@ -18,68 +56,64 @@
 
 @endsection
 @section('content')
-<link rel="stylesheet" href="/admin/css/bootstrap.min.css">
-<div class="container">
-	@if(count($errors) > 0)
-	<div class="alert alert-danger alert-dismissable">
-	        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-	        <ul>
-	            @foreach($errors -> all() as $error)
-	               <li>{{ $error }}</li>
-	               @endforeach
-	        </ul>        
+<div class="content-wrap">
+
+	<div class="container clearfix lamp203">
+
+		<div class="table-responsive bottommargin">
+			
+			
+			<table class="table cart">
+				<thead>
+					<tr>
+						<th class="cart-product-remove">商品名</th>
+						<th class="cart-product-thumbnail">用户名</th>
+						<th class="cart-product-name">订单号</th>
+						<th class="cart-product-price">评论内容</th>
+						<th class="cart-product-price">评价</th>
+						<th class="cart-product-price">时间</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						
+						<td class="cart-product-price">
+							{{$v->gname}}
+						</td>
+
+						<td class="cart-product-price">
+							12345678
+						</td>
+
+						<td class="cart-product-price">
+							1234567u
+						</td>
+
+						<td class="cart-product-quantity">
+							12345678i
+						</td>
+
+						<td class="cart-product-subtotal">
+							1234567i
+						</td>
+
+						<td class="cart-product-remove">
+							12345678o
+						</td>
+
+					</tr>
+					
+
+					
+				</tbody>
+			</table>
+			
+		</div>
+
+
 	</div>
-	@endif
-	
-	
 
-	<form action="/home/comment/insert" method="post">
-		<b class="col-sm-3" style="font-size:40px">商品评价:</b>
-	  	<div class="form-group">
-	  		<div class="col-sm-6" style="font-size:40px">
-		  		<div class="col-sm-7 pfq">
-			  		<b id='1'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-			  		<b id='2'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-			  		<b id='3'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-			  		<b id='4'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-			  		<b id='5'><input name='' value='0' style='border:solid 0px red;display:none;'/>☆</b>
-	  			</div>
-	  		</div>
-	    	<label for="exampleInputFile"></label>
-	    	<textarea class="form-control" rows="4" name="content" clos="100" style="margin-top:80px;"></textarea>
-	 	</div>
-	  	<button type="submit" class="btn btn-info">评论</button>
-	  	{{ csrf_field() }}
-	</form>
 </div>
-<!-- <script src="/admins/js/libs/jquery.min.js"></script> -->
-<script>
-	$('#1').click(function(){
-		$(this).replaceWith("<b id='1'><input name='stars' value='1' style='border:solid 0px red;display:none;'/>★</b>");
 
-	})
-	$('#2').click(function(){
-		$('#1').replaceWith("<b id='1'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$(this).replaceWith("<b id='2'><input name='stars' value='2' style='border:solid 0px red;display:none;'/>★</b>");
-	})
-	$('#3').click(function(){
-		$('#1').replaceWith("<b id='1'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#2').replaceWith("<b id='2'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$(this).replaceWith("<b id='3'><input name='stars' value='3' style='border:solid 0px red;display:none;'/>★</b>");
-	})
-	$('#4').click(function(){
-		$('#1').replaceWith("<b id='1'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#2').replaceWith("<b id='2'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#3').replaceWith("<b id='3'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$(this).replaceWith("<b id='4'><input name='stars' value='4' style='border:solid 0px red;display:none;'/>★</b>");
-	})
-	$('#5').click(function(){
-		$('#1').replaceWith("<b id='1'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#2').replaceWith("<b id='2'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#3').replaceWith("<b id='3'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$('#4').replaceWith("<b id='4'><input style='border:solid 0px red;display:none;'/>★</b>");
-		$(this).replaceWith("<b id='5'><input name='stars' value='5' style='border:solid 0px red;display:none;'/>★</b>");
-	})
-
-</script>
 @endsection

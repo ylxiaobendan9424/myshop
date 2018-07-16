@@ -6,6 +6,7 @@
 
 @endsection
 @section('content')
+
    <section id="content">
 
             <div class="content-wrap">
@@ -13,7 +14,7 @@
                 <div class="container clearfix">
 
                     <div class="single-product">
-
+                    @foreach($data as $k)
                         <div class="product">
 
                             <div class="col_two_fifth">
@@ -24,9 +25,9 @@
                                     <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                                         <div class="flexslider">
                                             <div class="slider-wrap" data-lightbox="gallery">
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3.jpg"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="/homes/images/shop/dress/3.jpg" alt="Pink Printed Dress"></a></div>
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-1.jpg"><a href="images/shop/dress/3-1.jpg" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="/homes/images/shop/dress/3-1.jpg" alt="Pink Printed Dress"></a></div>
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-2.jpg"><a href="images/shop/dress/3-2.jpg" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="/homes/images/shop/dress/3-2.jpg" alt="Pink Printed Dress"></a></div>
+                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3.jpg"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
+                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-1.jpg"><a href="images/shop/dress/3-1.jpg" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
+                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-2.jpg"><a href="images/shop/dress/3-2.jpg" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -56,12 +57,14 @@
 
                                 <!-- Product Single - Quantity & Cart Button
                                 ============================================= -->
-                                <form class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data'>
+                                <form class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data' action="/home/gouwu">
                                     <div class="quantity clearfix">
                                         <input type="button" value="-" class="minus">
                                         <input type="text" step="1" min="1"  name="quantity" value="1" title="Qty" class="qty" size="4" />
                                         <input type="button" value="+" class="plus">
+                                        <input type="hidden" name="goodsid" value="{{$k->id}}" />
                                     </div>
+                                    {{csrf_field()}}
                                     <button type="submit" class="add-to-cart button nomargin">Add to cart</button>
                                 </form><!-- Product Single - Quantity & Cart Button End -->
 
@@ -124,7 +127,7 @@
 
                             <div class="col_one_fifth col_last">
 
-                                <a href="#" title="Brand Logo" class="hidden-xs"><img class="image_fade" src="images/shop/brand.jpg" alt="Brand Logo"></a>
+                                <a href="#" title="Brand Logo" class="hidden-xs"><img class="image_fade" src="divider divider-center" alt="Brand Logo"></a>
 
                                 <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
 
@@ -352,7 +355,7 @@
                             </div>
 
                         </div>
-
+                    @endforeach
                     </div>
 
                     <div class="clear"></div><div class="line"></div>
@@ -365,15 +368,7 @@
 
                             <div class="oc-item">
                                 <div class="product iproduct clearfix">
-                                    <div class="product-image">
-                                        <a href="#"><img src="images/shop/dress/1.jpg" alt="Checked Short Dress"></a>
-                                        <a href="#"><img src="images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a>
-                                        <div class="sale-flash">50% Off*</div>
-                                        <div class="product-overlay">
-                                            <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                            <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                        </div>
-                                    </div>
+                                
                                     <div class="product-desc center">
                                         <div class="product-title"><h3><a href="#">Checked Short Dress</a></h3></div>
                                         <div class="product-price"><del>$24.99</del> <ins>$12.49</ins></div>
@@ -390,14 +385,7 @@
 
                             <div class="oc-item">
                                 <div class="product iproduct clearfix">
-                                    <div class="product-image">
-                                        <a href="#"><img src="images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                                        <a href="#"><img src="images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
-                                        <div class="product-overlay">
-                                            <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                            <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="product-desc center">
                                         <div class="product-title"><h3><a href="#">Slim Fit Chinos</a></h3></div>
                                         <div class="product-price">$39.99</div>
@@ -414,14 +402,7 @@
 
                             <div class="oc-item">
                                 <div class="product iproduct clearfix">
-                                    <div class="product-image">
-                                        <a href="#"><img src="images/shop/shoes/1-1.jpg" alt="Dark Brown Boots"></a>
-                                        <a href="#"><img src="images/shop/shoes/1.jpg" alt="Dark Brown Boots"></a>
-                                        <div class="product-overlay">
-                                            <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                            <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="product-desc center">
                                         <div class="product-title"><h3><a href="#">Dark Brown Boots</a></h3></div>
                                         <div class="product-price">$49</div>
@@ -438,14 +419,7 @@
 
                             <div class="oc-item">
                                 <div class="product iproduct clearfix">
-                                    <div class="product-image">
-                                        <a href="#"><img src="images/shop/dress/2.jpg" alt="Light Blue Denim Dress"></a>
-                                        <a href="#"><img src="images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
-                                        <div class="product-overlay">
-                                            <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                            <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="product-desc center">
                                         <div class="product-title"><h3><a href="#">Light Blue Denim Dress</a></h3></div>
                                         <div class="product-price">$19.95</div>
@@ -518,31 +492,79 @@
             </div>
 
         </section><!-- #content end -->
-@endsection
+}
+}
+<script type="text/javascript">
 
-@section('footer')
-<footer id="footer" class="dark">
+    //加法运算
+    $('.plus').click(function(){
+
+        //获取数量
+        var num = $(this).prev().val();
+
+        num++;
+        //加完之后让数量发生改变
+        $(this).prev().val(num);
 
 
-    <!-- Copyrights
-    ============================================= -->
-     <div class="container clearfix">
-            <center>
-            <div class="col-md-12 clearfix" style="height:60px">
-                
-                @foreach($aa as $k => $v)
-                    <a href="{{$v->url}}">{{$v->name}}</a>&nbsp;|&nbsp;
+        function accMul(arg1, arg2) {
 
+            var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
 
-                @endforeach
-                
-            </div>
-            </center>
+            try { m += s1.split(".")[1].length } catch (e) { }
 
-            
+            try { m += s2.split(".")[1].length } catch (e) { }
 
-        </div>
-    <!-- #copyrights end -->
+            return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
 
-</footer>
+        }
+
+        //获取单价
+        var pc = $(this).parents('tr').find('.price').text();
+
+        //加完之后让小计发生改变
+
+        $(this).parents('tr').find('.xiaoji').text(accMul(pc,num));
+    
+        totals();
+    })
+
+    $('.minus').click(function(){
+
+        var mins = $(this).next().val();
+
+        mins--;
+        if(mins <= 1){
+
+            mins = 1;
+        }
+
+        //减完让数量发生改变
+        $(this).next().val(mins);
+
+        //减完让小计发生改变
+        //获取单价
+        var pc = $(this).parents('tr').find('.price').text();
+
+        function accMul(arg1, arg2) {
+
+            var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+
+            try { m += s1.split(".")[1].length } catch (e) { }
+
+            try { m += s2.split(".")[1].length } catch (e) { }
+
+            return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+
+        }
+
+        //加完之后让小计发生改变
+
+        $(this).parents('tr').find('.xiaoji').text(accMul(pc,mins));
+
+        totals();
+
+    })
+
+</script>
 @endsection

@@ -55,10 +55,8 @@ class LinkController extends Controller
     {
        //
         $this->validate($request, [
-
             'name' => 'required',
             'url' => 'required|regex:/^\S{1,350}$/',          
-
         ],[
             'name.required'=>'链接名不能为空',
             'name.regex'=>'链接名格式不正确',
@@ -118,13 +116,11 @@ class LinkController extends Controller
     {
         //
         $this->validate($request, [
-
             'name' => 'required',
             'url' => 'required|regex:/^\S{1,350}$/',          
-
         ],[
             'name.required'=>'链接名不能为空',
-            //'name.regex'=>'链接名格式不正确',
+            'name.regex'=>'链接名格式不正确',
             'url.required'=>'链接地址不能为空',
             'url.regex'=>'链接地址格式不正确'
 

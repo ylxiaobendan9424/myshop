@@ -21,25 +21,26 @@
 			@endif
 
 
-    	<form action="/admin/user/" method='post' class="mws-form" enctype='multipart/form-data'>
+    	<form action="/admin/gonggao/update/{{$id=$res->id}}" method='post' class="mws-form" enctype='multipart/form-data'>
     		<div class="mws-form-inline">
     			<div class="mws-form-row">
-    				<label class="mws-form-label">头像</label>
+    				<label class="mws-form-label">公告标题</label>
     				<div class="mws-form-item">
-
-                        
-
-    					<input type="file" name='profile' class="fileinput-preview" style="width: 100%; padding-right: 84px;" readonly="readonly" placeholder="No file selected...">
+    					<input type="text" class="small" name='title' value="{{$res->title}}">
     				</div>
     			</div>
 
+    			<div class="mws-form-row">
+    				<label class="mws-form-label">公告地址</label>
+    				<div class="mws-form-item">
+    					<input type="text" class="small" name='url' value="{{$res->url}}">
+    				</div>
+    			</div>
     		</div>
     		<div class="mws-button-row">
 
     			{{csrf_field()}}
-
-                {{method_field('PUT')}}
-    			<input type="submit" class="btn btn-success" value="修改">
+    			<input type="submit" class="btn btn-success" value="提交">
     		</div>
     	</form>
     </div>    	
