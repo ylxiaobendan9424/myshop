@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="col-md-10 col-xs-10  nopadding">
 														
-							<a href="/home/dizhi" class="button button-3d notopmargin fright">提交</a>
+							<a href="/home/queren" class="button button-3d notopmargin fright">提交</a>
 							<a href="/home/dizhi" class="button button-3d notopmargin fright">新建地址</a>
 						</div>
 					</div>

@@ -1,8 +1,10 @@
 
 @extends('layout.infos')
-
+<link href="/css/infstyle.css" rel="stylesheet" type="text/css">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('content')
-		
+
+		<form action="/info/update" method="get" class="am-form am-form-horizontal" enctype="multipart/form-data">
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
@@ -15,93 +17,61 @@
 						<hr/>
 
 						<!--头像 -->
-						<div class="user-infoPic" style="height:180px;">
+						头像:<div class="user-infoPic">
 							
-							<p class="am-form-help" style="height:90px;">头像:</p>
-							<div class="filePic" style="height:30px;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								@foreach($res as $k=>$v)
-								<img class="am-circle am-img-thumbnail" src="{{$v->profile}}" alt="" />
-								@endforeach
-							</div>
-							<div class="filePic" style="height:30px;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-								
-							</div>
+							
+							<div style="height:80px;">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<img class="am-circle am-img-thumbnail" src="{{$res->profile}}" style="width:80px;hight:80px;" alt=""  />
 
-							
-							<div class="info-m" style="height:30px;">
-								<div><b>用户名：@foreach($res as $k=>$v)<i>{{$v->username}}</i>@endforeach</b></div>
-								
-								
 							</div>
+							<div>
+							
+								<input type="file" allowexts="gif,jpeg,jpg,png,bmp" name="profile" >
+								<!-- 上传头像<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*"> -->
+							
+							</div>
+							
+								
+						</div>
+						<div style="margin:10px;">
+							<b>用户名：<i>{{$res->username}}</i></b>
 						</div>
 
 						<!--个人信息 -->
 						<div class="info-main">
-						@foreach($res as $k=>$v)
-							<form class="am-form am-form-horizontal">
+						
+							
 								
-								<div class="am-form-group" style="height:30px;">
-									<label for="user-name2" class="am-form-label">昵称</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="nickname" value="{{$v->nickname}}">
-
-									</div>
-								</div>
-
-								<div class="am-form-group" style="height:30px;">
-									<label for="user-name" class="am-form-label">用户名</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="name"  value="{{$v->username}}">
-
-									</div>
-								</div>
-
-								<div class="am-form-group" style="height:30px;">
-									<label class="am-form-label">性别</label>
-									<div class="am-form-content sex">
+										
 									
-										
-										<select name="" id="" style="width:175px;">
-										
-											<option value="男" @if($v->sex=='男')selected @endif>男</option>
-										
-											<option value="女" @if($v->sex=='女')selected @endif>女</option>
+										昵称:<input type="text" id="user-name2" placeholder="nickname" name="nickname" value="{{$res['user_detail']->nickname}}">
 
-											<option value="保密" @if($v->sex=='保密')selected @endif>保密</option>
+									
+						
+
+								
+										用户名<input type="text" name="username" id="user-name2" placeholder="name"  value="{{$res->username}}">
+
+								
+										性别<select name="sex" id="" style="width:175px;">
+										
+											<option value="男" @if($res['user_detail']->sex=='男')selected @endif>男</option>
+										
+											<option value="女" @if($res['user_detail']->sex=='女')selected @endif>女</option>
+
+											<option value="保密" @if($res['user_detail']->sex=='保密')selected @endif>保密</option>
 										</select>
 										
-										
-									</div>
-								</div>
+							
+										电话<input id="user-phone" name="phone" placeholder="telephonenumber" type="tel" value="{{$res->phone}}">
 
+									
+										邮箱<input id="user-email" name="email" placeholder="Email" type="email" value="{{$res->email}}">
+
+									
 								
-								<div class="am-form-group" style="height:30px;">
-									<label for="user-phone" class="am-form-label">电话</label>
-									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel" value="{{$v->phone}}">
-
-									</div>
-								</div>
-								<div class="am-form-group" style="height:30px;">
-									<label for="user-email" class="am-form-label">邮箱</label>
-									<div class="am-form-content">
-										<input id="user-email" placeholder="Email" type="email" value="{{$v->email}}">
-
-									</div>
-								</div>
-								<div class="am-form-group address" style="height:30px;">
-									<label for="user-address" class="am-form-label">默认收货地址:</label>
-									<select name="" id="" style="width:400px;">
-										<option value="" selected>123456</option>
-
-
-
-									</select>
-								</div>
-								<div class="am-form-group safety" style="height:30px;">
+								<div class="am-form-group safety">
 									
 									<div class="am-form-content safety">
 										<a href="safety.html">
@@ -112,14 +82,13 @@
 
 									</div>
 								</div>
-								<div class="info-btn">
+								<div class="info-btn" style="margin:10px;">
 
-									<input type="submit" value="保存" style="font-size:18px;">
+									<input type="submit" value="修改" style="font-size:18px;">
 									
 								</div>
 
-							</form>
-						@endforeach
+							
 									
 						</div>
 
@@ -131,7 +100,7 @@
 
 			
 		</div>
-		
+		{{ csrf_field() }}
 
-
+</form>
 @endsection

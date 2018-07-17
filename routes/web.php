@@ -49,6 +49,8 @@ Route::group(['middleware'=>'login'],function(){
 	Route::any('admin/logout','admin\LoginController@logout');
 	//轮播
 	Route::resource('admin/lunbo','admin\LunboController');
+	//广告
+	Route::resource('admin/guanggao','admin\GuanggaoController');
 });
 
 //Route::get('admin/comment','admin\CommentController@index');
@@ -92,13 +94,13 @@ Route::group([],function(){
 	//个人信息
 	Route::get('/info/info','home\InfoController@index');
 	Route::get('/info/gerenxinxi','home\GerenxinxiController@index');
+	Route::get('/info/update','home\GerenxinxiController@update');
+	/*Route::get('/info/editgerenxinxi/{id}','home\GerenxinxiController@edit');*/
+
 
 	//地址
 	Route::resource('/home/address','home\AddressController');
-	//购物车
 	
-	//Route::any('/home/cart','home\CartController@cart');
-	//Route::any('/home/ajaxcart','home\CartController@ajaxcart');
 
 
 

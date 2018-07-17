@@ -138,11 +138,17 @@
 
                         <!-- Top Cart
                         ============================================= -->
-                        <div id="top-cart" style="width:50px;">
+                        <div id="top-cart">
                             <!-- <a href="/home/cart">个人中心</a> -->
                             <a href="/info/info"><i class="icon-home"></i></a>
                            
                         </div><!-- #top-cart end -->
+                         <div id="top-cart">
+                            <!-- <a href="/home/cart">个人中心</a> -->
+                            <a href="/home/cart"><i class="icon-shopping-cart"></i></a>
+                           
+                        </div>
+
 
                         <!-- Top Search
                         ============================================= -->

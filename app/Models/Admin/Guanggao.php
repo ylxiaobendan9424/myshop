@@ -4,7 +4,7 @@ namespace App\Models\admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Guanggao extends Model
 {
     //
     /**
@@ -12,7 +12,7 @@ class User extends Model
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'guanggao';
 
     protected $primaryKey = 'id';
 
@@ -24,10 +24,5 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['username','password','email','phone','profile','status','token'];
-
-    public function user_detail()
-    {
-        return $this->hasOne('App\Models\Admin\User_detail','u_id');
-    }
+    protected $fillable = ['gname','gphone','gimage','gtext'];
 }
