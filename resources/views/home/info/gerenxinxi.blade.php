@@ -83,8 +83,8 @@
 									</div>
 								</div>
 								<div class="info-btn" style="margin:10px;">
-
-									<input type="submit" value="修改" style="font-size:18px;">
+									
+									<input type="submit" value="保存" style="font-size:18px;">
 									
 								</div>
 

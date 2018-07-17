@@ -25,6 +25,8 @@ Route::group(['middleware'=>'login'],function(){
 
 	//后台首页
 	Route::any('admin/index','admin\IndexController@index');
+	//管理员
+	Route::resource('/admin/admin','admin\AdminController');
 	//用户
 	Route::resource('admin/user','admin\UserController');
 
