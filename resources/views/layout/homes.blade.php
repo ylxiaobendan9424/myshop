@@ -125,14 +125,15 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
+                        <a href="/home" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
                         <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="/homes/images/logo@2x.png" alt="Canvas Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
                     ============================================= -->
-                    <nav id="primary-menu">
 
+                    <nav id="primary-menu">
+            
                         <ul>
                         @php
 
@@ -202,7 +203,7 @@
             <div class="container clearfix">
                 <h1>My Account</h1>
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/home">首页</a></li>
                     <li><a href="#">Pages</a></li>
                     <li class="active">Login</li>
                 </ol>

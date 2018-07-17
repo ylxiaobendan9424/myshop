@@ -102,15 +102,61 @@ class CartController extends Controller
     }
     public function queren(Request $request)
     {
+         $add = $request->except('_token','_method','profile');
+         // dd($add);
         $aa = DB::table('link')->get();
         $res = DB::table('cart')->join('goods', function ($join) {
                  $join->on('cart.gid', '=', 'goods.id')->where('cart.status', '=', '2');
         })
         ->get();
         // dd($res);
+        $num = 0;
+        $price = 0;
+        foreach ($res as $k => $v) {
+            $gid[] = $v->gid;
+            $num =$num + $v->num;
+            $price = $num*$v->price;
+        }
+        // dd($num);
+        session(['gid'=>$gid]);
+        session(['num'=>$num]);
+        session(['price'=>$price]);
+        session(['res'=>$add]);
         $arr = DB::table('goodspic')->get();
         // dd($arr);
         return view('home.cart.queren',['res'=>$res,'arr'=>$arr,'aa'=>$aa]);
+    }
+    public function jieshu(Request $request)
+    {
+       
+        // dd($res);
+        $gid = $request->session()->get('gid');
+        $num = $request->session()->get('num');
+        $sum = $request->session()->get('price');
+        $res = $request->session()->get('res');
+        
+        // $a = DB::table('orderxiangqing')->where('gid', '=', $gid)->delete();
+        // $message = $request->session()->get('message');  
+        // dd($num);
+        $oid = rand(1000,9999).time();
+        // dd($oid);
+        $ac = DB::table('orders')->insert(
+             ['id' => $oid, 'u_id' => 1,'name'=> $res['name'] ,'address'=> $res['address'] , 'phone'=> $res['phone'] ,'create_at'=> date("Y-m-d"),'sum'=>$sum,'cnt'=>$num]
+         );
+        // dd($message);
+        // dd($ac);
+        foreach ($gid as $k => $v) {
+            $n = DB::table('cart')->where('gid',$v)->value('num');
+            $price = DB::table('goods')->where('id',$v)->value('price');
+            // dd($n);
+            $od = DB::table('orderxiangqing')->insert(
+                    ['o_id'=>$oid,'g_id'=>$v,'cnt'=>$n,'price'=>$price]
+                );
+        }
+
+        $a = DB::table('cart')->where('gid', '=', $gid)->delete();
+        return view('home.cart.jieshu',['title'=>'支付页面','oid'=>$oid,'sum'=>$sum]);
+        
     }
 
 }

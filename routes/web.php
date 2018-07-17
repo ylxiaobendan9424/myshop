@@ -37,7 +37,11 @@ Route::group(['middleware'=>'login'],function(){
 	Route::resource('admin/goods','admin\GoodsController');
 	
 	//特价商品
-	Route::resource('admin/tjgoods','admin\TjgoodsController');
+	Route::any('admin/tjgoods','admin\TjgoodsController@index');
+	Route::any('admin/tjgoods/{id}','admin\TjgoodsController@create');
+	Route::any('admin/tjgoods/store/{id}','admin\TjgoodsController@store');
+	Route::any('admin/tjgoods/edit/{id}','admin\TjgoodsController@edit');
+	Route::any('admin/tjgoods/update/{id}','admin\TjgoodsController@update');
 	//退出
 	Route::any('admin/logout','admin\LoginController@logout');
 	//评论
@@ -92,10 +96,12 @@ Route::group([],function(){
 	Route::any('/home/remove','home\CartController@remove');
 	Route::any('/home/moren','home\CartController@moren');
 	Route::any('/home/queren','home\CartController@queren');
+	Route::any('/home/jieshu','home\CartController@jieshu');
 
 	//个人信息
 	Route::get('/info/info','home\InfoController@index');
 	Route::get('/info/gerenxinxi','home\GerenxinxiController@index');
+	Route::get('/info/shouhuo','home\ShouhuoController@index');
 	Route::get('/info/update','home\GerenxinxiController@update');
 	/*Route::get('/info/editgerenxinxi/{id}','home\GerenxinxiController@edit');*/
 

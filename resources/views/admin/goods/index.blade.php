@@ -153,7 +153,7 @@
                                 <button href="" class='btn btn-warning'>删除</button>
 
                             </form>
-                            
+                            <a href="/admin/tjgoods/{{$v->id}}" class='btn btn-info'>促销</a>
                         </td>
                     </tr>
                  

@@ -2,7 +2,7 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('title',$title)
+@section('title')
 
 @section('content')
 
@@ -11,47 +11,11 @@
         <span>
             <i class="icon-table">
             </i>
-            {{$title}}
         </span>
     </div>
 
     <div class="mws-panel-body no-padding">
         <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
-
-			<form action="/admin/goods" method='get'>
-	            <div id="DataTables_Table_1_length" class="dataTables_length">
-	                <label>
-	                    显示
-	                    <select name="num" size="1" aria-controls="DataTables_Table_1">
-
-                            <option value="10" @if($request->num == 10)   selected="selected" @endif>
-                                10
-                            </option>
-                            <option value="20" @if($request->num == 20)   selected="selected" @endif>
-                                20
-                            </option>
-                            <option value="30" @if($request->num == 30)   selected="selected" @endif>
-                                30
-                            </option>
-	                        
-	                    </select>
-	                    条数据
-	                </label>
-	            </div>
-	            <div class="dataTables_filter" id="DataTables_Table_1_filter">
-	                <label>
-	                    商品名:
-	                    <input type="text" name='rgname' value="{{$request->rgname}}" aria-controls="DataTables_Table_1">
-	                </label>
-
-                    <label>
-                        价格:
-                        <input type="text" name='rprice' value="{{$request->rprice}}" aria-controls="DataTables_Table_1">
-                    </label>
-
-	                <button class='btn btn-info'>搜索</button>
-	            </div>
-            </form>
 
 
 
@@ -59,16 +23,6 @@
             aria-describedby="DataTables_Table_1_info">
                 <thead>
                     <tr role="row">
-                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 50px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                            ID
-                        </th>
-
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 60px;" aria-label="CSS grade: activate to sort column ascending">
-                           分类
-                        </th>
-
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 266px;" aria-label="Browser: activate to sort column ascending">
                             商品名
@@ -77,27 +31,6 @@
                         rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
                             价格
                         </th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 170px;" aria-label="Engine version: activate to sort column ascending">
-                            颜色
-                        </th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
-                           尺码
-                        </th>
-
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
-                           详情
-                        </th>
-
-
-
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 80px;" aria-label="CSS grade: activate to sort column ascending">
-                           状态
-                        </th>
-
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 140px;" aria-label="CSS grade: activate to sort column ascending">
                            操作
@@ -109,50 +42,22 @@
 					@foreach($res as $k => $v)
 
                     <tr class="@if($k % 2 == 1)  odd   @else even  @endif">
-                        <td class="">
-                            {{$v->rgid}}
-                        </td>
+
 
                         <td class=" ">
-                            {{$v->cateid}}
+                            {{($v->gname)}}
                             
-                        </td>
-                        <td class="uname">
-                            {{$v->rgname}}
-                        </td>
+                        </td> 
                         <td class=" ">
-                            {{$v->rprice}}
-                        </td>
-                        <td class=" ">
-                            {{$v->rcolor}}
-                            
-                        </td>
-                         <td class=" ">
-                            {{$v->rsize}}
-                            
-                        </td>
-
-                        <td class=" ">
-                            {!!$v->rcontent!!}
-                            
-                        </td>
-
-                        <td class=" ">
-                            {{checkfun($v->rstatus)}}
+                            {{($v->gprice)}}
                             
                         </td>
 
                          <td class=" ">
-                            <a href="/admin/goods/{{$v->rgid}}/edit" class='btn btn-info'>修改</a>
+                            <a href="/admin/tjgoods/edit/{{$v->gid}}" class='btn btn-info'>修改</a>
+                            <a href="/admin/tjgoods/delete/{{$v->gid}}" class='btn btn-info'>删除</a>
 
-                            <form action="/admin/goods/{{$v->rgid}}" method='post' style='display:inline'>
-                                
-                                {{csrf_field()}}
-
-                                {{method_field('DELETE')}}
-                                <button href="" class='btn btn-warning'>删除</button>
-
-                            </form>
+                            
                             
                         </td>
                     </tr>
@@ -215,13 +120,6 @@
                 }
 			</style>
             <div class="dataTables_paginate paging_full_numbers" id="paginate">
-
-				<!-- {{$res->links()}} -->
-
-                <!-- $arr  ====> ['num'=20,'search'=>'zz'] -->
-
-                {{ $res->appends($request->all())->links() }}
-                <!-- {{ $res->appends($request->all())->render() }} -->
 
                
             </div>

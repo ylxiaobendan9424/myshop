@@ -75,8 +75,8 @@
                         Hello, {{session('vname')}}
                     </div>
                     <ul>
-                    	<li><a href="/">修改头像</a></li>
-                        <li><a href="/">修改密码</a></li>
+                    	<li><a href="#">修改头像</a></li>
+                        <li><a href="#">修改密码</a></li>
                         <li><a href="/admin/logout">退出</a></li>
                     </ul>
                 </div>
@@ -140,7 +140,6 @@
                     <li>
                         <a href="#"><i class="icon-shopping-cart"></i>特价商品管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/tjgoods/create">添加特价商品</a></li>
                             <li><a href="/admin/tjgoods">浏览特价商品</a></li>
                         </ul>
                     </li>

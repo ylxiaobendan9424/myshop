@@ -59,6 +59,11 @@
 @endsection
 
 @section('content')
+<center>
+<div class="content mar_20" style="margin:10px;">
+	<img src="/images/img1.jpg" />        
+</div>	
+</center>
 <div class="content-wrap">
 
 	<div class="container clearfix lamp203">
@@ -137,7 +142,7 @@
 							<div class="row clearfix">
 								
 								<div class="col-md-12 col-xs-12 nopadding">
-									
+									<a href="/home" class="button button-3d notopmargin fright">继续购物</a>
 									<a href="/home/dizhi" class="button button-3d notopmargin fright">结算</a>
 								</div>
 							</div>
@@ -183,7 +188,7 @@
 				                购物车空空的哦~，去看看心仪的商品吧~
 				            </li>
 				            <li class="mt10">
-				                <a href="/home/index" class="ftx-05">
+				                <a href="/home" class="ftx-05">
 				                    去购物&gt;
 				                </a>
 				            </li>

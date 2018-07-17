@@ -1,5 +1,21 @@
 @extends('layout.homes')
 
+@section('page')
+
+ <!-- Page Title
+        ============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>确认订单</h1>
+        <ol class="breadcrumb">
+            <li><a href="/home">首页</a></li>
+            <li><a href="/home/cart">购物车</a></li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+@endsection
     
 @section('content')
 <div class="i_bg">  
@@ -42,7 +58,7 @@
 <div class="row">
 	<div class="col-md-10 col-xs-10  nopadding">
 									
-		<a href="/home/dizhi" class="button button-3d notopmargin fright">结算</a>
+		<a href="/home/jieshu" class="button button-3d notopmargin fright">结算</a>
 	</div>
 </div>
 @endsection

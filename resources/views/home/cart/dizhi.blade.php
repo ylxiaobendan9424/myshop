@@ -78,8 +78,39 @@
 						<!--例子-->
 						
 					</div>
+					<form action="/home/queren" method="post">
+						{{csrf_field()}}
+					@foreach($res as $k=>$v)
+					@if($v->status == '1')
+					姓名： <input type="text" name="name" value="{{$v->name}}">	
+					电话： <input type="txet" name="phone" value="{{$v->phone}}">
+					地址：	<textarea name="address">{{$v->address}}</textarea>
+					@endif
+					@endforeach
+					
 
-					<script type="text/javascript">
+					<div class="clear"></div>
+					<div class="row">
+						<div class="col-md-10 col-xs-10  nopadding">
+														
+							<input type="submit" name="" value="提交">
+							<a href="/home/address/create" class="button button-3d notopmargin fright">新建地址</a>
+						</div>
+					</div>
+				</div>
+				<!--底部-->
+				</form>
+			</div>
+
+		</div>
+
+
+<SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>
+@endsection
+@section('js')
+<script type="text/javascript">
 						$(document).ready(function() {							
 							$(".new-option-r").click(function() {
 								$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
@@ -92,28 +123,6 @@
 							
 						})
 					</script>
-
-					<div class="clear"></div>
-					<div class="row">
-						<div class="col-md-10 col-xs-10  nopadding">
-														
-							<a href="/home/queren" class="button button-3d notopmargin fright">提交</a>
-							<a href="/home/dizhi" class="button button-3d notopmargin fright">新建地址</a>
-						</div>
-					</div>
-				</div>
-				<!--底部-->
-				
-			</div>
-
-		</div>
-
-
-<SCRIPT Language=VBScript><!--
-
-//--></SCRIPT>
-@endsection
-@section('js')
 <script>
 	$.ajaxSetup({
 	    headers: {
@@ -149,7 +158,7 @@
 				                购物车空空的哦~，去看看心仪的商品吧~
 				            </li>
 				            <li class="mt10">
-				                <a href="/home/index" class="ftx-05">
+				                <a href="/home" class="ftx-05">
 				                    去购物&gt;
 				                </a>
 				            </li>
