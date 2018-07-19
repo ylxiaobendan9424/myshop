@@ -15,8 +15,9 @@ class ListController extends Controller
     	// echo 1232;die;
     	$aa = DB::table('link')->get();
     	$data = Goods::with('gs')->where('cateid',$id)->get();
+    	$session_user = session('uname');
 
-    	return view('home.index.list',['aa'=>$aa,'data'=>$data]);
+    	return view('home.index.list',['aa'=>$aa,'data'=>$data,'session_user'=>$session_user]);
     }
 
     

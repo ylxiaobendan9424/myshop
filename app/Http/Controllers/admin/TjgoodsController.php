@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Tjgoods;
 use DB;
 
 class TjgoodsController extends Controller
@@ -48,9 +49,9 @@ class TjgoodsController extends Controller
     public function edit($id)
     {
     	// dd($id);
-    	$res = DB::table('tjgoods')->where('id',$id)->first();
+    	$res = DB::table('tjgoods')->where('gid',$id)->first();
     	// dd($res);
-    	$gname = DB::table('goods')->where('id',$res->gid)->value('gname');
+    	$gname = DB::table('goods')->where('id',$id)->value('gname');
     	// dd($gname);
         return view('admin.tjgoods.edit',['res'=>$res,'gname'=>$gname]);
     }
@@ -68,6 +69,34 @@ class TjgoodsController extends Controller
     	}catch(\Exception $e){
 
             return back();
+
+        }
+    }
+
+     public function destroy($id)
+    {
+        // dd($id);
+        // $tjgoods = Tjgoods::delete($id);
+        $tjgoods = DB::table('tjgoods')->where('gid',$id)->delete();
+        // dd($id);
+
+        // $tjgoods->delete();
+       /* try{
+
+             $tjgoods = DB::table('tjgoods')->where('id',$id)->delete();
+             // dd($tjgoods);
+            if($tjgoods){
+                return redirect('/admin/tjgoods')->with(['success'=>'删除成功']);
+            }
+        }catch(\Exception $e){
+
+            return back();
+
+        }*/
+       
+        
+        if($tjgoods){
+            return redirect('/admin/tjgoods')->with(['success'=>'删除成功']);
 
         }
     }

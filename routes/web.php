@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 	 Route::any('admin/captcha','admin\LoginController@captcha');
 //后台路由组
-Route::group(['middleware'=>'login'],function(){
+Route::group([''],function(){
 
 	//后台首页
 	Route::any('admin/index','admin\IndexController@index');
@@ -42,6 +42,7 @@ Route::group(['middleware'=>'login'],function(){
 	Route::any('admin/tjgoods/store/{id}','admin\TjgoodsController@store');
 	Route::any('admin/tjgoods/edit/{id}','admin\TjgoodsController@edit');
 	Route::any('admin/tjgoods/update/{id}','admin\TjgoodsController@update');
+	Route::any('admin/tjgoods/delete/{id}','admin\TjgoodsController@destroy');
 	//退出
 	Route::any('admin/logout','admin\LoginController@logout');
 	//评论
@@ -102,6 +103,7 @@ Route::group([],function(){
 	Route::get('/info/info','home\InfoController@index');
 	Route::get('/info/gerenxinxi','home\GerenxinxiController@index');
 	Route::get('/info/shouhuo','home\ShouhuoController@index');
+	Route::get('/info/wodedingdan','home\WodedingdanController@index');
 	Route::get('/info/update','home\GerenxinxiController@update');
 	/*Route::get('/info/editgerenxinxi/{id}','home\GerenxinxiController@edit');*/
 

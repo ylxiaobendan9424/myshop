@@ -17,9 +17,13 @@ class HomeController extends Controller
     	$guanggao = DB::table('guanggao')->get();
     	$lunbo = DB::table('lunbo')->get();
         $cart = DB::table('cart')->get();
+        $goods = DB::table('tjgoods')
+        ->Join('goodspic', 'tjgoods.gid', '=', 'goodspic.gid')
+        ->get();
     	// dd($res);
+        // dd($goods);
 
-    	return view('home.home',['arr'=>$arr,'aa'=>$aa,'lb'=>$lb,'guanggao'=>$guanggao,'lunbo'=>$lunbo,'cart'=>$cart]);
+    	return view('home.home',['arr'=>$arr,'aa'=>$aa,'lb'=>$lb,'guanggao'=>$guanggao,'lunbo'=>$lunbo,'cart'=>$cart,'goods'=>$goods]);
     }
     public function show()
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\User;
+use Session;
 use Hash;
 use DB;
 
@@ -42,6 +43,12 @@ class LoginController extends Controller
 		session(['username'=>$uname->username]);
 
 		return redirect('/home');
+    }
+
+    public function logout()
+    {
+      session(['uname'=>'']);
+      return redirect('/home/login');
     }
 
     

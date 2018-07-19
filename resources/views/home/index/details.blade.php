@@ -25,13 +25,13 @@
                                     <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                                         <div class="flexslider">
                                             <div class="slider-wrap" data-lightbox="gallery">
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3.jpg">
+                                                <div class="slide" data-thumb="{{$k->gs[0]->gpic}}">
                                                    <a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Front View" data-lightbox="gallery-item">
                                                       <img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress">
                                                    </a>
                                                 </div>
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-1.jpg"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
-                                                <div class="slide" data-thumb="images/shop/thumbs/dress/3-2.jpg"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
+                                                <div class="slide" data-thumb="{{$k->gs[0]->gpic}}"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
+                                                <div class="slide" data-thumb="{{$k->gs[0]->gpic}}"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{$k->gs[0]->gpic}}" alt="Pink Printed Dress"></a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -69,12 +69,12 @@
                                         <input type="hidden" name="goodsid" value="{{$k->id}}" />
                                     </div>
                                     {{csrf_field()}}
-                                    <button type="submit" class="add-to-cart button nomargin">添加到购物车</button>
+                                    <button type="submit" id='submit' class="add-to-cart button nomargin">添加到购物车</button>
                                 </form><!-- Product Single - Quantity & Cart Button End -->
 
                                 <div class="clear"></div>
                                 <div class="line"></div>
-
+                               
                                 <!-- Product Single - Short Description
                                 ============================================= -->
                                 <p>安全提示：

@@ -14,9 +14,9 @@ class GerenxinxiController extends Controller
     //
     public function index()
     {
-    	// dd(session('uname'));
-    	// $res = User::where('username',session('uname'))->with('user_detail')->first();
-    	$res = User::where('id',78)->with('user_detail')->first();
+    	// dd(session('username'));
+    	$res = User::where('username',session('username'))->with('user_detail')->first();
+    	// $res = User::where('id',78)->with('user_detail')->first();
     	// dd($res);
 
 
@@ -30,8 +30,11 @@ class GerenxinxiController extends Controller
     	// dd($user);
     	// dd($user['profile']);
 
-    	$res = User::where('id',78)->with('user_detail')->first();  // 通过session 查询不变的条件
-    	$id = $res -> id;
+    	// $res = User::where('id',78)->with('user_detail')->first();  // 通过session 查询不变的条件
+    	$res = User::where('username',session('username'))->with('user_detail')->first();
+
+        $id = $res -> id;
+        // dd($id);
 
     	 if($request->hasFile('profile')){
 

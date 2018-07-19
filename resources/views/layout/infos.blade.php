@@ -114,7 +114,7 @@
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">我的订单</a></li>
+							<li><a href="wodedingdan">我的订单</a></li>
 						</ul>
 					</li>
 					
@@ -124,7 +124,7 @@
 						<ul>
 							<li> <a href="collection.html">收藏</a></li>
 							
-							<li> <a href="comment.html">评价</a></li>
+							<li> <a href="comment">评价</a></li>
 							
 						</ul>
 					</li>
