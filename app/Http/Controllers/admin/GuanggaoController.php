@@ -7,6 +7,7 @@ use App\Models\Admin\Guanggao;
 use Config;
 use Hash;
 use App\Http\Requests\FormRequest;
+use DB;
 
 class GuanggaoController extends Controller
 {
@@ -59,11 +60,11 @@ class GuanggaoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'gname' => 'required|regex:/^\w{1,12}$/',
+            'gname' => 'required',
             'gphone'=>'required|regex:/^1[3456789]\d{9}$/',            
         ],[
             'gname.required'=>'用户名不能为空',
-            'gname.regex'=>'用户名格式不正确',
+            //'gname.regex'=>'用户名格式不正确',
             'gphone.required'=>'手机号不能为空',
             'gphone.regex'=>'手机号格式不正确',
             'gtext.required'=>'不正确'
@@ -119,10 +120,13 @@ class GuanggaoController extends Controller
      */
     public function edit($id)
     {
-        $res = Guanggao::find($id);
+        // $res = Guanggao::find($id);
 
-        //dump($res);
-        return view('admin.guanggao.edit',['title'=>'用户名的修改页面','res'=>$res]);
+        // //dump($res);
+        // return view('admin.guanggao.edit',['title'=>'用户名的修改页面','res'=>$res]);
+         $res = DB::table('guanggao')->where('id',$id)->first();
+        //dd($res);
+        return view('admin.guanggao.edit',['title'=>'公告的修改页面','res'=>$res]);
     }
 
     /**
@@ -136,11 +140,10 @@ class GuanggaoController extends Controller
     {
         
          $this->validate($request, [
-            'gname' => 'required|regex:/^\w{1,12}$/',
+            'gname' => 'required',
             'gphone'=>'required|regex:/^1[3456789]\d{9}$/',            
         ],[
             'gname.required'=>'用户名不能为空',
-            'gname.regex'=>'用户名格式不正确',
             'gphone.required'=>'手机号不能为空',
             'gphone.regex'=>'手机号格式不正确',
             'gtext.required'=>'不正确'
@@ -160,18 +163,18 @@ class GuanggaoController extends Controller
         }
         //存数据表
         $res['gimage'] = Config::get('app.path').$name.'.'.$suffix;
-        dd($res);
-         /*try{
-            $data = Guanggao::where('id',$id)->update($res);
+        //dd($res);
+        //try{
+             $data = Guanggao ::where('id',$id)->update($res);
 
             if($data){
                 return redirect('/admin/guanggao')->with('success','修改成功');
             }
-        }catch(\Exception $e){
+        // }catch(\Exception $e){
 
-            return back()->with('error');
+        //     return back()->with('error');
 
-        }*/
+        // }
     }
 
     /**

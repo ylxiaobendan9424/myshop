@@ -122,7 +122,7 @@
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
+							<li> <a href="collection">收藏</a></li>
 							
 							<li> <a href="comment">评价</a></li>
 							

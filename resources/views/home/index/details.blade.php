@@ -44,7 +44,7 @@
 
                                 <!-- Product Single - Price
                                 ============================================= -->
-                                <div class="product-price"><del>$39.99</del> <ins>${{$k->price}}</ins></div><!-- Product Single - Price End -->
+                                <div class="product-price"> <ins>¥{{$k->price}}</ins></div><!-- Product Single - Price End -->
 
                                 <!-- Product Single - Rating
                                 ============================================= -->

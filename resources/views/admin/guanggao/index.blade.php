@@ -14,39 +14,14 @@
             {{$title}}
         </span>
     </div>
-
     <div class="mws-panel-body no-padding">
         <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
-			<form action="/admin/user" method='get'>
-	            <div id="DataTables_Table_1_length" class="dataTables_length">
-	                <label>
-	                    显示
-	                    <select name="num" size="1" aria-controls="DataTables_Table_1">
-
-	                    
-
-                            <option value="10" @if($request->num == 10)   selected="selected" @endif>
-                                10
-                            </option>
-                            <option value="20" @if($request->num == 20)   selected="selected" @endif>
-                                20
-                            </option>
-                            <option value="30" @if($request->num == 30)   selected="selected" @endif>
-                                30
-                            </option>
-	                        
-	                    </select>
-	                    条数据
-	                </label>
-	            </div>
+			<form action="/admin/guanggao" method='get'>
+	           
 	            <div class="dataTables_filter" id="DataTables_Table_1_filter">
 	                <label>
-	                    用户名:
-	                    <input type="text" name='search' value="{{$request->search}}" aria-controls="DataTables_Table_1">
 	                </label>
-
-	                <button class='btn btn-info'>搜索</button>
 	            </div>
             </form>
 
@@ -57,15 +32,15 @@
                 <thead>
                     <tr role="row">
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 198px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        rowspan="1" colspan="1" style="width: 50px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 266px;" aria-label="Browser: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">
                             广告投放商名
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 170px;" aria-label="Engine version: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Engine version: activate to sort column ascending">
                             联系手机号
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -73,15 +48,11 @@
                            广告图片
                         </th>
                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 200px;" aria-label="CSS grade: activate to sort column ascending">
                           广告描述
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
-                           状态
-                        </th>
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 140px;" aria-label="CSS grade: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">
                            操作
                         </th>
                     </tr>
@@ -113,16 +84,6 @@
                             
                         </td>
                          <td class=" ">
-                            <!-- @if($v->status == '1')
-                                启用
-                            @else
-                                禁止
-                            @endif -->
-
-                            {{checkfun($v->status)}}
-                            
-                        </td>
-                         <td class=" ">
                             <a href="/admin/guanggao/{{$v->id}}/edit" class='btn btn-info'>修改</a>
 
                             <form action="/admin/guanggao/{{$v->id}}" method='post' style='display:inline'>
@@ -143,7 +104,7 @@
             </table>
 
             <div class="dataTables_info" id="DataTables_Table_1_info">
-                Showing 1 to 10 of 57 entries
+                lixiangzuode....
             </div>
 
 			<style>

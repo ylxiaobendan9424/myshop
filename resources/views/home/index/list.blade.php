@@ -39,7 +39,7 @@
                             </div>
                             <div class="product-desc">
                                 <div class="product-title"><h3><a href="/home/details">{{$k->gname}}</a></h3></div>
-                                <div class="product-price"><del>$24.99</del> <ins>${{$k->price}}</ins></div>
+                                <div class="product-price"> <ins>¥{{$k->price}}</ins></div>
                                 <div class="product-rating">
                                     <i class="icon-star3"></i>
                                     <i class="icon-star3"></i>

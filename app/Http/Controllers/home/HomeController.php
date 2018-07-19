@@ -19,6 +19,7 @@ class HomeController extends Controller
         $cart = DB::table('cart')->get();
         $goods = DB::table('tjgoods')
         ->Join('goodspic', 'tjgoods.gid', '=', 'goodspic.gid')
+        ->Join('goods', 'tjgoods.gid', '=', 'goods.id')
         ->get();
     	// dd($res);
         // dd($goods);

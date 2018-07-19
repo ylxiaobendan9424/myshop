@@ -17,12 +17,17 @@ class WodedingdanController extends Controller
             ->Join('goods', 'goods.id', '=', 'goodspic.gid')
             ->get();
         // dd($res);
+        $name = $request->session()->get('username');
+        // dd($name);
+        $aa = DB::table('user')->where('username',$name)->first();
+        // dd($aa);
+        $id = $aa->id;
+        // dd($id);
         
-
         
 
     	
-    	return view('home.info.wodedingdan',['res'=>$res]);
+    	return view('home.info.wodedingdan',['res'=>$res,'id'=>$id]);
     }
 }
 

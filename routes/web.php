@@ -58,6 +58,8 @@ Route::group([''],function(){
 	Route::resource('admin/lunbo','admin\LunboController');
 	//广告
 	Route::resource('admin/guanggao','admin\GuanggaoController');
+	//订单
+	// Route::resource('admin/dingdan','admin\DingdanController');
 });
 
 //Route::get('admin/comment','admin\CommentController@index');
@@ -76,6 +78,7 @@ Route::any('home/jihuo','home\RegisterController@jihuo');
 Route::any('home/login','home\LoginController@login');
 
 Route::any('home/dologin','home\LoginController@dologin');
+Route::any('home/logout','home\LoginController@logout');
 
 //前台路由组
 Route::group([],function(){
@@ -102,9 +105,11 @@ Route::group([],function(){
 	//个人信息
 	Route::get('/info/info','home\InfoController@index');
 	Route::get('/info/gerenxinxi','home\GerenxinxiController@index');
+	Route::get('/info/update','home\GerenxinxiController@update');
 	Route::get('/info/shouhuo','home\ShouhuoController@index');
 	Route::get('/info/wodedingdan','home\WodedingdanController@index');
-	Route::get('/info/update','home\GerenxinxiController@update');
+	Route::get('/info/collection','home\CollectionController@index');
+	
 	/*Route::get('/info/editgerenxinxi/{id}','home\GerenxinxiController@edit');*/
 
 

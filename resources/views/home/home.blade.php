@@ -506,15 +506,15 @@
                                                 <div class="product-image">
                                                     <a href="#"><img src="{{$v->gpic}}" alt="Checked Short Dress"></a>
                                                     <!-- <a href="#"><img src="/homes/images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a> -->
-                                                    <div class="sale-flash">50% Off*</div>
+                                                    <div class="sale-flash">大折扣</div>
                                                     <div class="product-overlay">
-                                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                                        <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
+                                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> 加入购物车</span></a>
+                                                        <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> 查看详情</span></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-desc">
-                                                    <div class="product-title"><h3><a href="#">Checked Short Dress</a></h3></div>
-                                                    <div class="product-price"><del>$24.99</del> <ins>${{$v->gprice}}</ins></div>
+                                                    <div class="product-title"><h3><a href="#">{{$v->gname}}</a></h3></div>
+                                                    <div class="product-price"><del>¥{{$v->price}}</del> <ins>¥{{$v->gprice}}</ins></div>
                                                     <div class="product-rating">
                                                         <i class="icon-star3"></i>
                                                         <i class="icon-star3"></i>

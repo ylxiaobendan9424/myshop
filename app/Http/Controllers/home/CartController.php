@@ -134,6 +134,10 @@ class CartController extends Controller
         $num = $request->session()->get('num');
         $sum = $request->session()->get('price');
         $res = $request->session()->get('res');
+         $name = $request->session()->get('username');
+        $aa = DB::table('user')->where('username',$name)->first();
+        // dd($aa);
+        $id = $aa->id;
         
         // $a = DB::table('orderxiangqing')->where('gid', '=', $gid)->delete();
         // $message = $request->session()->get('message');  
@@ -141,7 +145,7 @@ class CartController extends Controller
         $oid = rand(1000,9999).time();
         // dd($oid);
         $ac = DB::table('orders')->insert(
-             ['id' => $oid, 'u_id' => 1,'name'=> $res['name'] ,'address'=> $res['address'] , 'phone'=> $res['phone'] ,'create_at'=> date("Y-m-d"),'sum'=>$sum,'cnt'=>$num]
+             ['id' => $oid, 'u_id' => $id,'name'=> $res['name'] ,'address'=> $res['address'] , 'phone'=> $res['phone'] ,'create_at'=> date("Y-m-d"),'sum'=>$sum,'cnt'=>$num]
          );
         // dd($message);
         // dd($ac);

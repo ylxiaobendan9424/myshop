@@ -18,6 +18,7 @@
 			<th class="car_th" width="50">操作</th>
 		</tr>
 		@foreach($res as $k=>$v)
+		@if($id == $v->u_id )
 		<tr style="height:50px;">
 			<td>{{$v->gname}}</td>
 			<td><img src="{{$v->gpic}}" alt="" style="width:50px;"></td>
@@ -31,6 +32,7 @@
 				<!-- <input type="submit" value="删除"> -->
 			</td>
 		</tr>
+		@endif
 		@endforeach
 	</table>
 	</center>

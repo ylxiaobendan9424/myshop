@@ -348,7 +348,7 @@
 		//获取id
 		var id = $(this).attr('ids');
 
-		
+		var ts = $(this);
 
 
 		//发送ajax
@@ -392,7 +392,7 @@ $('.checkbox').click(function(){
 
 		if($(this).is(':checked')){
 		// totals();
-		totals();
+			totals();
 		var id = $(this).attr('ids');
 			$.post('/home/order',{'id':id},function(data){
 			console.log(data);
@@ -401,7 +401,7 @@ $('.checkbox').click(function(){
 		// console.log(id);
 			// removeturn false;
 		}else{
-			$('.total').text('0.0');
+			$('.total').text('这里不对');
 		}
 		// 
 

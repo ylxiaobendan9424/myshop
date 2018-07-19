@@ -20,6 +20,7 @@ class ShouhuoController extends Controller
         // dd($name);
         $aa = DB::table('user')->where('username',$name)->first();
         $id = $aa->id;
+        // dd($id);
 
 
         // dd($id);
