@@ -15,29 +15,18 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$id)
+    public function index(Request $request)
     {   
         
         $comment = DB::table('orderxiangqing')
             ->Join('orders', 'order.o_id', '=', 'orderxiangqing.o_id')
             ->Join('goods', 'goods.id', '=', 'orderxiangqing.g_id')
+            ->Join('goodspic', 'goods.id', '=', 'goodspic.gid')
             ->get();
-            foreach ($comment as $k => $v) {
-                # code...
-                $v;
-
-            };
-
-        $pic=DB::table('goodspic')->where('gid',$id)->get();
-         foreach ($pic as $k1 => $v2) {
-            # code.
-             $v2 ;
-         }
+        dd($comment);
 
 
-
-
-        return view('/admin/Comment/index',['title'=>'浏览评论','v'=>$v,'v2'=>$v2]);
+        return view('/admin/comment/index',['title'=>'浏览评论','comment'=>$comment]);
     }
 
     /**
@@ -49,6 +38,7 @@ class CommentController extends Controller
     {
         //
         session(['uname'=>'admins']);
+        
        return view('home.comment.create',[
             'title'=>'评论',
             
@@ -59,6 +49,7 @@ class CommentController extends Controller
     // 添加到数据库
     public function insert(Request $request)
     {
+
         /* $req = $request->all();
          $req = $request->except(['_token']);
          

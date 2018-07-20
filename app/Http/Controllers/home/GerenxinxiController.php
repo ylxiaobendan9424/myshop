@@ -25,7 +25,7 @@ class GerenxinxiController extends Controller
     
     public function update(Request $request)
     {	
-    	$user = $request ->except('_token','_method'); // 接收重表单传过来的数据筛除_token
+    	$user = $request->except('_token','_method'); // 接收重表单传过来的数据筛除_token
     	// dd($request->file('profile'));
     	// dd($user);
     	// dd($user['profile']);
@@ -33,7 +33,7 @@ class GerenxinxiController extends Controller
     	// $res = User::where('id',78)->with('user_detail')->first();  // 通过session 查询不变的条件
     	$res = User::where('username',session('username'))->with('user_detail')->first();
 
-        $id = $res -> id;
+        $id = $res->id;
         // dd($id);
 
     	 if($request->hasFile('profile')){
@@ -44,7 +44,7 @@ class GerenxinxiController extends Controller
 
             $suffix = $request->file('profile')->getClientOriginalExtension();
             
-			$request->file('profile') -> move('/pic',$name.'.'.$suffix);
+			$request->file('profile')->move('./pic',$name.'.'.$suffix);
 
 			$res['profile'] = '/pic/'.$name.'.'.$suffix;
 

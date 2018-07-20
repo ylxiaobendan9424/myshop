@@ -27,7 +27,7 @@
                 </td>
               </tr>
                 <td style="height:100px;">
-                    <a href="/home/order"><span style="color: red;text-decoration: underline;">查看我的订单</span></a>
+                    <a href="/info/wodedingdan"><span style="color: red;text-decoration: underline;">查看我的订单</span></a>
                 	<a href="/home/cart"><span style="color: red;text-decoration: underline;">查看我的购物车</span></a>
                 </td>
             </table>        	

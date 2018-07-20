@@ -69,7 +69,8 @@
                                         <input type="hidden" name="goodsid" value="{{$k->id}}" />
                                     </div>
                                     {{csrf_field()}}
-                                    <button type="submit" id='submit' class="add-to-cart button nomargin">添加到购物车</button>
+                                    <button type="submit" id='submit' class="add-to-cart button nomargin">添加到购物车</button>&nbsp;
+                                    <a href=""><img src="/homes/images/hui.png" width="40px" height="35px" alt="" id="shoucang"></a>
                                 </form><!-- Product Single - Quantity & Cart Button End -->
 
                                 <div class="clear"></div>
@@ -135,7 +136,7 @@
 
                             <div class="col_one_fifth col_last">
 
-                                <a href="#" title="Brand Logo" class="hidden-xs"><img class="image_fade" src="divider divider-center" alt="Brand Logo"></a>
+                                
 
                                 <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
 
@@ -396,6 +397,8 @@
 
                             });
 
+
+                        
                         </script>
 
                     </div>
@@ -408,7 +411,7 @@
             
 
 
-            <div class="container clearfix" style="background-color: #333; width:1500px;">
+            <div class="container clearfix" style="background-color: #333; width:100%;">
                     <center>
                     <div class="col-md-12 clearfix" style="height:60px">
                         

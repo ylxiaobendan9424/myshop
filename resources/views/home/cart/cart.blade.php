@@ -91,7 +91,7 @@
 					@foreach($res as $k => $v)
 					<tr class="cart_item">
 						<td class="cart-product-thumbnail">
-							<input type="checkbox" class="checkbox" ids="{{$v->gid}}">
+							<input type="checkbox" ids="{{$v->gid}}">
 						</td>
 
 						<td class="cart-product-thumbnail">
@@ -170,7 +170,7 @@
 								</td>
 
 								<td class="cart-product-name">
-									<strong>¥<span class="total color lead zongjia">0.0</span></strong>
+									<strong>¥<span class="total color lead">0.0</span></strong>
 								</td>
 							</tr>
 						</tbody>
@@ -301,7 +301,13 @@
 
 	})
 
-	
+	//单击多选框让总价发生改变
+	$(':checkbox').click(function(){
+
+		totals();
+
+	})
+
 	function totals()
 	{
 
@@ -328,13 +334,13 @@
 	//全选
 	$('.as').click(function(){
 
-		$('.checkbox').each(function(){
+		$(':checkbox').each(function(){
 
 			// $(this).attr('checked','checked');
 			$(this).attr('checked',true);
 		})
 
-		totals();	
+		totals();
 	})
 
 	//删除
@@ -386,33 +392,19 @@
 	})
 //单机多选框选择商品
 
-$('.checkbox').click(function(){
+$(':checkbox').click(function(){
 
-		// var ts = $(this);
 
-		if($(this).is(':checked')){
-		// totals();
-			totals();
+		totals();
 		var id = $(this).attr('ids');
-			$.post('/home/order',{'id':id},function(data){
+		$.post('/home/order',{'id':id},function(data){
 			console.log(data);
-			})
-		// alert('1');
+		})
 		// console.log(id);
-			// removeturn false;
-		}else{
-			$('.total').text('这里不对');
-		}
-		// 
 
-		
-
-		
-				
-			
 
 	})
-	
+
 
 </script>
 

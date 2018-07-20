@@ -83,9 +83,9 @@
 
             <!-- Copyrights
             ============================================= -->
-             <div class="container clearfix" style="background-color: #333;">
+             <div class="container clearfix" style="background-color: #333; width:100%;">
                     <center>
-                    <div class="col-md-12 clearfix" style="height:60px">
+                    <div class="col-md-12 clearfix" style="height:60px;">
                         
                         @foreach($aa as $k => $v)
                             <a href="{{$v->url}}">{{$v->name}}</a>&nbsp;|&nbsp;

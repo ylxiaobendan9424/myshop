@@ -146,8 +146,7 @@
                     <li>
                         <a href="#"><i class="icon-hand-right"></i>订单管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/comment/create">浏览订单</a></li>
-                            <li><a href="/admin/comment">订单详情</a></li>
+                            <li><a href="/admin/dingdan">浏览订单</a></li>
                         </ul>
                     </li>
 

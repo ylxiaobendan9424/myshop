@@ -12,27 +12,27 @@ class CartController extends Controller
     public function cart()
     {
         $aa = DB::table('link')->get();
-    	$res = DB::table('goods')
+        $res = DB::table('goods')
             ->Join('cart', 'goods.id', '=', 'cart.gid')
             ->get();
         // dd($res);
         $arr = DB::table('goodspic')->get();
-    	return view('home.cart.cart',['res'=>$res,'aa'=>$aa,'arr'=>$arr]);
+        return view('home.cart.cart',['res'=>$res,'aa'=>$aa,'arr'=>$arr]);
     }
 
     public function ajaxcart(Request $request)
     {
-    	$id = $request->input('id');
-    	//构造器删除
-    	$data = DB::table('cart')->where('id',$id)->delete();
+        $id = $request->input('id');
+        //构造器删除
+        $data = DB::table('cart')->where('id',$id)->delete();
 
-    	$count = DB::table('cart')->count();
+        $count = DB::table('cart')->count();
 
-    	echo $count;
-	}
+        echo $count;
+    }
 
 
-	 public function sess()
+     public function sess()
         {
         session('ses') == session('username');
     }
@@ -134,11 +134,10 @@ class CartController extends Controller
         $num = $request->session()->get('num');
         $sum = $request->session()->get('price');
         $res = $request->session()->get('res');
-         $name = $request->session()->get('username');
+        $name = $request->session()->get('username');
         $aa = DB::table('user')->where('username',$name)->first();
         // dd($aa);
         $id = $aa->id;
-        
         // $a = DB::table('orderxiangqing')->where('gid', '=', $gid)->delete();
         // $message = $request->session()->get('message');  
         // dd($num);

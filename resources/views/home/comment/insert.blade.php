@@ -8,10 +8,12 @@
 <div class="comment-main">
 
 	<div class="comment-list">
+	{{--@foreach($comment as $k=>$v)--}}
 <form action="">
-		<div class="item-pic" style="width:180px;height:180px;">
+
+		<div class="/home/comment/create" style="width:180px;height:180px;">
 			<a href="#" class="J_MakePoint">
-				<img src="../images/comment.jpg_400x400.jpg" class="itempic">
+				<img src="111" class="itempic">
 			</a>
 		</div>
 
@@ -19,16 +21,16 @@
 
 			<div class="item-name">
 				<a href="#">
-					<p class="item-basic-info">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+					<p class="item-basic-info">1</p>
 				</a>
 			</div>
 			<div class="item-info">
 				<div class="info-little">
-					颜色：<span>洛阳牡丹</span>
+					颜色：<span>1</span>
 					
 				</div>
 				<div class="item-price">
-					价格：<strong>19.88元</strong>
+					价格：<strong>¥1</strong>
 				</div>										
 			</div>
 		</div>
@@ -43,8 +45,9 @@
 			<li><i class="op3"></i><input type="radio" name="appraise">差评</li>
 		</div>
 		
-		<input type="submit" value="评价">
+			<input type="submit" value="评价">
 		</form>
+		{{--@endforeach--}}
 	</div>
 
 	

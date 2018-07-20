@@ -4,7 +4,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('content')
 
-		<form action="/info/update" method="get" class="am-form am-form-horizontal" enctype="multipart/form-data">
+		<form action="/info/update" method="post" class="am-form am-form-horizontal" enctype="multipart/form-data">
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
@@ -25,7 +25,7 @@
 								<img class="am-circle am-img-thumbnail" src="{{$res->profile}}" style="width:80px;hight:80px;" alt=""  />
 
 							</div>
-							<div>
+							<div style="margin-top:30px;">
 							
 								<input type="file" allowexts="gif,jpeg,jpg,png,bmp" name="profile" >
 								<!-- 上传头像<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*"> -->

@@ -4,7 +4,7 @@
 @section('content')
 
 
-<form action="comment/create" style="margin:50px 0px 0px 80px;">
+<form action="/home/comment/insert" style="margin:50px 0px 0px 80px;">
 	<center>
 	<table  class="car_tab" style="width:750px;" cellspacing="0" cellpadding="0">
 		<tr style="height:50px;">

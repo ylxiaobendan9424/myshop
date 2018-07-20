@@ -192,7 +192,7 @@ class UserController extends Controller
         if(!$info)  return;
 
         $res = $request->except('_token','_method','profile');
-
+             
         // dump($res);
         if($request->hasFile('profile')){
             //设置名字
