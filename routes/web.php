@@ -93,7 +93,7 @@ Route::group([],function(){
     //加入购物车
     Route::any('/home/gouwu','home\DetailsController@gouwu');
     //购物车
-    Route::any('/home/cart','home\CartController@cart');
+    Route::any('/home/cart/{id?}','home\CartController@cart');
 	Route::any('/home/ajaxcart','home\CartController@ajaxcart');
 	Route::any('/home/dizhi','home\CartController@dizhi');
 	Route::any('/home/order','home\CartController@order');
@@ -111,6 +111,8 @@ Route::group([],function(){
 	Route::get('/info/shouhuo','home\ShouhuoController@index');
 	Route::get('/info/wodedingdan','home\WodedingdanController@index');
 	Route::get('/info/collection','home\CollectionController@index');
+	Route::get('/info/collection/create','home\CollectionController@create');
+	Route::get('/info/collection/del','home\CollectionController@del');
 	
 	/*Route::get('/info/editgerenxinxi/{id}','home\GerenxinxiController@edit');*/
 
@@ -119,15 +121,15 @@ Route::group([],function(){
 	Route::resource('/home/address','home\AddressController');
 	
 	//评论
-	Route::any('home/comment/{id}','home\CommentController@insert');
-	Route::any('/home/commentxs/{id}','home\CommentController@create');
+	Route::any('/home/comment/add/{id}','home\CommentController@add');
+	Route::any('/home/comment/index/{id}','home\CommentController@index');
 
 
 });
 
 // 评价管理
-Route::get('/admin/comment/index','admin\CommentController@index');  // 显示页面
+//Route::get('/admin/comment/index','admin\CommentController@index');  // 显示页面
 
 
-Route::any('/home/comment/create','admin\CommentController@create');  /// 添加评论页面
-Route::any('/home/comment/insert','admin\CommentController@insert');  /// 添加评论操作
+//Route::any('/home/comment/create','admin\CommentController@create');  /// 添加评论页面
+//Route::any('/home/comment/insert','admin\CommentController@insert');  /// 添加评论操作

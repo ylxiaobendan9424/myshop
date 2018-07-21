@@ -21,7 +21,7 @@
 			<form action="/admin/goods" method='get'>
 	            <div id="DataTables_Table_1_length" class="dataTables_length">
 	                <label>
-	                    显示
+	                    显示1
 	                    <select name="num" size="1" aria-controls="DataTables_Table_1">
 
                             <option value="10" @if($request->num == 10)   selected="selected" @endif>

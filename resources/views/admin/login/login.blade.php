@@ -52,7 +52,7 @@
 
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="text" name="code" class="mws-paste-word" placeholder="请输入验证码" style='width:150px'>
+                            <input type="text" name="code" class="mws-paste-word" placeholder="请输入验证码" style='width:160px'>
 
                             <img src="/admin/captcha" alt="" onclick='this.src=this.src+="?1"'>
                         </div>

@@ -97,16 +97,17 @@
 						<td class="cart-product-thumbnail">
 							@foreach($arr as $k1=>$v1)
 							@if($v->gid == $v1->gid)
-							<a href="#"><img width="64" height="64" src="{{$v1->gpic}}" alt="Pink Printed Dress"></a>
+							<img width="64" height="64" src="{{$v1->gpic}}" alt="Pink Printed Dress">
 							@endif
 							@endforeach
 						</td>
 
 						<td class="cart-product-name">
-							<a href="#">{{$v->gname}}</a>
+							{{$v->gname}}</a>
 						</td>
 
 						<td class="cart-product-price">
+							
 							¥<span class="price">{{$v->price}}</span>
 						</td>
 

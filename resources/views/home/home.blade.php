@@ -431,7 +431,7 @@
         <section id="content">
         <div id="budong"><!--广告-->
         @foreach($guanggao as $k=>$v)
-            <img src="{{$v->gimage}}" width="150px" height="300px">
+            <img src="{{$v->gimage}}" width="150px" height="400px">
             
             <button onclick="document.getElementById('budong').style.display='none';"><span>X</span></button>
             </img>
@@ -509,8 +509,8 @@
                                                     <div class="sale-flash">大折扣</div>
                                                     <div class="product-overlay">
                                                         
-                                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> 加入购物车</span></a>
-                                                        <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> 查看详情</span></a>
+                                                        <a href="/home/cart/{{$v->gid}}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> 加入购物车</span></a>
+                                                        <a href="home/details/{{$v->id}}" class="item-quick-view" ><i class="icon-zoom-in2"></i><span> 查看详情</span></a>
                                                     </div>
                                                 </div>
                                                 <div class="product-desc">

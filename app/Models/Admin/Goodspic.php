@@ -26,6 +26,8 @@ class Goodspic extends Model
      */
     protected $fillable = ['gid','gpic'];
 
-
+    public function goods(){
+        return $this->belongsTo('App\Models\Admin\Goods','id');
+    }
     
 }

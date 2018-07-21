@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\home;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Goods;
@@ -14,9 +12,9 @@ class DetailsController extends Controller
 {
     public function details($id)
     {
-    	$data = Goods::with('gs')->where('id',$id)->get();
-    	$aa = DB::table('link')->get();
-    	return view('home.index.details',['data'=>$data,'aa'=>$aa]);
+        $data = Goods::with('gs')->where('id',$id)->get();
+        $aa = DB::table('link')->get();
+        return view('home.index.details',['data'=>$data,'aa'=>$aa]);
 
     }
     public function gouwu(Request $request){
@@ -24,7 +22,9 @@ class DetailsController extends Controller
         // dd($request->input());
         $res['gid']=$request->input('goodsid');
         $res['num']=$request->input('quantity');
-        $res['status']='1';
+        $res['color']=$request->input('color');
+        $res['size']=$request->input('size');
+        // $res['status']='1';
 
         // dd(session('username'));
         $user = User::where('username', session('username'))->first();
@@ -34,7 +34,7 @@ class DetailsController extends Controller
         // dd($res);
         DB::table('cart')->insert($res);
 
-    	return redirect('/home/cart');
+        return redirect('/home/cart');
 
     }
 }

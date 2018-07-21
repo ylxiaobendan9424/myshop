@@ -62,7 +62,7 @@ class LoginController extends Controller
       $builder->setMaxBehindLines(0);
       $builder->setMaxFrontLines(0);
       // 可以设置图片宽高及字体
-      $builder->build($width = 350, $height = 87, $font = null);
+      $builder->build($width = 100, $height = 30, $font = null);
       // 获取验证码的内容
       $phrase = $builder->getPhrase();
       // 把内容存入session

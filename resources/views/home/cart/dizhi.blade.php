@@ -93,7 +93,7 @@
 					<div class="row">
 						<div class="col-md-10 col-xs-10  nopadding">
 														
-							<input type="submit" name=""  class="button button-3d notopmargin fright" value="提交">
+							<input type="submit" name="" value="提交">
 							<a href="/home/address/create" class="button button-3d notopmargin fright">新建地址</a>
 						</div>
 					</div>
@@ -113,13 +113,11 @@
 <script type="text/javascript">
 						$(document).ready(function() {							
 							$(".new-option-r").click(function() {
-								$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
+								location.reload();
+								
 							});
 							
-							var $ww = $(window).width();
-							if($ww>640) {
-								$("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
-							}
+							
 							
 						})
 					</script>

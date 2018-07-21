@@ -2,9 +2,10 @@
 @extends('layout.infos')
 
 @section('content')
+@foreach($res as $k=>$v)
 
-
-<form action="/home/comment/insert" style="margin:50px 0px 0px 80px;">
+<form action="/home/comment/add/{{$v->o_id}}" style="margin:50px 0px 0px 80px;">
+@endforeach
 	<center>
 	<table  class="car_tab" style="width:750px;" cellspacing="0" cellpadding="0">
 		<tr style="height:50px;">

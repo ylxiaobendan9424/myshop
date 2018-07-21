@@ -70,26 +70,68 @@
                                     </div>
                                     {{csrf_field()}}
                                     <button type="submit" id='submit' class="add-to-cart button nomargin">添加到购物车</button>&nbsp;
-                                    <a href=""><img src="/homes/images/hui.png" width="40px" height="35px" alt="" id="shoucang"></a>
-                                </form><!-- Product Single - Quantity & Cart Button End -->
-
+                                    <a href="/info/collection/create" class="link" gid="{{$k->id}}">
+                                        <img src="/homes/images/hui.png" width="40px" height="35px" alt="" id="shou"> 
+                                    </a>
+                                <!-- Product Single - Quantity & Cart Button End -->
+                                        
                                 <div class="clear"></div>
                                 <div class="line"></div>
                                
                                 <!-- Product Single - Short Description
                                 ============================================= -->
-                                <p>安全提示：
-                                            请勿随意接收任何来源不明的文件，请勿随意点击任何来源不明的链接。涉及资金往来的事项请务必仔细核对资金往来信息。 天猫不会以订单有问题，让您提供任何银行卡、密码、手机验证码！遇到可疑情况可在钱盾“诈骗举报”中进行举报, 安全推荐
-
-                                            推荐安全软件：钱盾UC浏览器</p>
-                                <p>内容声明：
-                                            天猫为第三方交易平台及互联网信息服务提供者，天猫（含网站、客户端等）所展示的商品/服务的标题、价格、详情等信息内容系由店铺经营者发布，其真实性、准确性和合法性均由店铺经营者负责。天猫提醒用户购买商品/服务前注意谨慎核实。如用户对商品/服务的标题、价格、详情等任何信息有任何疑问的，请在购买前通过阿里旺旺与店铺经营者沟通确认；天猫存在海量店铺，如用户发现店铺内有任何违法/侵权信息，请立即向天猫举报并提供有效线索。</p>
+                                <p>{!!$k->content!!}</p>
+                                <hr>
                                 <ul class="iconlist">
-                                    <li><i class="icon-caret-right"></i>  动态颜色选项</li>
-                                    <li><i class="icon-caret-right"></i>  大量尺寸选项</li>
+                                    <li><i class="icon-caret-right"></i>  动态颜色选项 : 
+                                        &nbsp;&nbsp;
+                                    <input type="radio" name="color" value="蓝色">蓝色
+                                      &nbsp;&nbsp;
+                                    <input type="radio" name="color" value="红色">红色
+                                     &nbsp;&nbsp;
+                                    <input type="radio" name="color" value="白色">白色
+
+                                    </li>
+
+                                        <br>
+                                    <li><i class="icon-caret-right"></i>  大量尺寸选项 : 
+                                        &nbsp;&nbsp;
+                                        <input type="radio" name="size" value="m">m
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="size" value="xl">xl
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="size" value="xxl">xxl
+
+                                    </li>
+                                        <br>
+
                                     <li><i class="icon-caret-right"></i>  30天退货政策</li>
                                 </ul><!-- Product Single - Short Description End -->
-
+                                </form>
+                                <script>
+                                            $('.link').click(function(){
+                                                var gid=$('.link').attr('gid');
+                                                $.ajax({
+                                                    url:'/info/collection/create',
+                                                    type:'get',
+                                                    data:{'goods_id':gid},
+                                                    dataType:'json',
+                                                    success:function(mes){
+                                                        if(mes=='0'){
+                                                            alert('收藏成功');
+                                                            $('#shou').attr('src','/homes/images/hong.png');
+                                                        }else{
+                                                             alert('操作错误');
+                                                        }
+                                                    },
+                                                    error:function(err){
+                                                        console.log(err);
+                                                    },
+                                                    anysc:true
+                                                })
+                                                return false;
+                                            })
+                                        </script>
                                 <!-- Product Single - Meta
                                 ============================================= -->
                                 <div class="panel panel-default product-meta">
@@ -398,7 +440,7 @@
                             });
 
 
-                        
+
                         </script>
 
                     </div>

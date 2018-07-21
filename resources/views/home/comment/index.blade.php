@@ -75,34 +75,37 @@
 					</tr>
 				</thead>
 				<tbody>
-
+                    @foreach($da as $k => $v)
 					<tr>
 						
+
 						<td class="cart-product-price">
-							{{$v->gname}}
+							{{$goods->gname}}
+						</td>
+						
+						<td class="cart-product-price">
+							{{session('username')}}
 						</td>
 
 						<td class="cart-product-price">
-							12345678
-						</td>
-
-						<td class="cart-product-price">
-							1234567u
+							{{$v->o_id}}
 						</td>
 
 						<td class="cart-product-quantity">
-							12345678i
+							{{$v->content}}
 						</td>
 
 						<td class="cart-product-subtotal">
-							1234567i
+							{{$v->appraise}}
 						</td>
 
 						<td class="cart-product-remove">
-							12345678o
+							{{$v->create_at}}
 						</td>
-
+					
 					</tr>
+						@endforeach
+
 					
 
 					

@@ -5,18 +5,43 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Models\Admin\User;
 
 class CartController extends Controller
 {
     //
-    public function cart()
+    public function cart($id=0)
     {
+        // dd($id);
+        if ($id) {
+            // dd($id);
+            $gid = DB::table('tjgoods')->where('gid',$id)->value('gid');
+            // dd($tj);
+            // dd(session('username'));
+            $uid = User::where('username', session('username'))->first();
+            // dd($uid);
+            $num = 1;
+            $color = '蓝色';
+            $size = 'm';
+            $data = DB::table('cart')->insert(
+                    ['gid' => $gid, 'uid' => $uid['id'] ,'num'=>$num,'color'=>$color,'size'=>$size]
+                );
+        }
         $aa = DB::table('link')->get();
         $res = DB::table('goods')
             ->Join('cart', 'goods.id', '=', 'cart.gid')
             ->get();
         // dd($res);
         $arr = DB::table('goodspic')->get();
+        $tj = DB::table('tjgoods')->get();
+        foreach ($res as $k => $v) {
+            foreach ($tj as $k1 => $v1) {
+                if ($v1->gid == $v->gid) {
+                    $v->price = $v1->gprice;
+                }
+            }
+        }
+        // dd($res);
         return view('home.cart.cart',['res'=>$res,'aa'=>$aa,'arr'=>$arr]);
     }
 
@@ -34,12 +59,14 @@ class CartController extends Controller
 
      public function sess()
         {
-        session('ses') == session('username');
-    }
+            session('ses') == session('username');
+        }
     public function dizhi()
     {
         $aa = DB::table('link')->get();
-        $res = DB::table('dizhi')->get();
+        $ss = User::where('username',session('username'))->first();
+        $id = $ss -> id; 
+        $res = DB::table('dizhi')->where('uid',$id)->get();
         return view('home.cart.dizhi',['res'=>$res,'aa'=>$aa]);
     }
     public function order(Request $request)
@@ -112,6 +139,14 @@ class CartController extends Controller
         // dd($res);
         $num = 0;
         $price = 0;
+        $tj = DB::table('tjgoods')->get();
+        foreach ($res as $k => $v) {
+            foreach ($tj as $k1 => $v1) {
+                if ($v1->gid == $v->gid) {
+                    $v->price = $v1->gprice;
+                }
+            }
+        }
         foreach ($res as $k => $v) {
             $gid[] = $v->gid;
             $num =$num + $v->num;
@@ -135,8 +170,9 @@ class CartController extends Controller
         $sum = $request->session()->get('price');
         $res = $request->session()->get('res');
         $name = $request->session()->get('username');
+        // dd($name);
         $aa = DB::table('user')->where('username',$name)->first();
-        // dd($aa);
+        // dd($res);
         $id = $aa->id;
         // $a = DB::table('orderxiangqing')->where('gid', '=', $gid)->delete();
         // $message = $request->session()->get('message');  
@@ -155,9 +191,10 @@ class CartController extends Controller
             $od = DB::table('orderxiangqing')->insert(
                     ['o_id'=>$oid,'g_id'=>$v,'cnt'=>$n,'price'=>$price]
                 );
+            $a = DB::table('cart')->where('gid', '=', $gid)->delete();
         }
 
-        $a = DB::table('cart')->where('gid', '=', $gid)->delete();
+        
         return view('home.cart.jieshu',['title'=>'支付页面','oid'=>$oid,'sum'=>$sum]);
         
     }

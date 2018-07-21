@@ -33,7 +33,7 @@
                 <td class="car_th" width="140">商品名称</td>
                 <td class="car_th" width="140">价格</td>
                 <td class="car_th" width="150">购买数量</td>
-                <td class="car_th" width="130">小计</td>
+                <td class="car_th" width="130">小计啊</td>
               </tr> 
 
               
