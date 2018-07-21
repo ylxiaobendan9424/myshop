@@ -65,9 +65,7 @@
             <div id="mws-user-info" class="mws-inset">
             
             	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="{{session('profile')}}" alt="User Photo">
-                </div>
+           
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
@@ -75,8 +73,6 @@
                         Hello, {{session('vname')}}
                     </div>
                     <ul>
-                    	<li><a href="#">修改头像</a></li>
-                        <li><a href="#">修改密码</a></li>
                         <li><a href="/admin/logout">退出</a></li>
                     </ul>
                 </div>
@@ -150,13 +146,6 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="icon-comments"></i>评论管理</a>
-                        <ul class='closed'>
-                            <li><a href="/admin/comment/create">添加评论</a></li>
-                            <li><a href="/admin/comment">评论列表</a></li>
-                        </ul>
-                    </li>
                     <li>
                         <a href="#"><i class="icon-envelope"></i>公告管理</a>
                         <ul class='closed'>

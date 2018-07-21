@@ -60,6 +60,7 @@ class CommentController extends Controller
     		$aa = DB::table('goods')
     				->Join('goodspic','goods.id','=','goodspic.gid')
     				->get();
+            // dd($bb->g_id);
           	return view('home.comment.add',['id'=>$id,'aa'=>$aa,'bb'=>$bb]);
     }
 }

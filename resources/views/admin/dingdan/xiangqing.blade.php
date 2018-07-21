@@ -119,7 +119,7 @@
 
 
             <div class="dataTables_paginate paging_full_numbers" id="paginate">
-            <a href="/admin/dingdan"> <button>返回首页</button> 
+            <a href="/admin/dingdan"> <button>返回浏览订单</button> 
             </a>
             </div>
             

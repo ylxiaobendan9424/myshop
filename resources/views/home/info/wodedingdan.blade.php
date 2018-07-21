@@ -2,10 +2,10 @@
 @extends('layout.infos')
 
 @section('content')
-@foreach($res as $k=>$v)
 
-<form action="/home/comment/add/{{$v->o_id}}" style="margin:50px 0px 0px 80px;">
-@endforeach
+
+
+
 	<center>
 	<table  class="car_tab" style="width:750px;" cellspacing="0" cellpadding="0">
 		<tr style="height:50px;">
@@ -20,6 +20,7 @@
 		</tr>
 		@foreach($res as $k=>$v)
 		@if($id == $v->u_id )
+		<form action="/home/comment/add/{{$v->o_id}}" style="margin:50px 0px 0px 80px;">
 		<tr style="height:50px;">
 			<td>{{$v->gname}}</td>
 			<td><img src="{{$v->gpic}}" alt="" style="width:50px;"></td>
@@ -33,11 +34,12 @@
 				<!-- <input type="submit" value="删除"> -->
 			</td>
 		</tr>
+		</form>
+
 		@endif
 		@endforeach
 	</table>
 	</center>
-</form>
 
 
 

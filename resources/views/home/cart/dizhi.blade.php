@@ -93,7 +93,7 @@
 					<div class="row">
 						<div class="col-md-10 col-xs-10  nopadding">
 														
-							<input type="submit" name="" value="提交">
+							<input type="submit" class="button button-3d notopmargin fright" name="" value="提交">
 							<a href="/home/address/create" class="button button-3d notopmargin fright">新建地址</a>
 						</div>
 					</div>

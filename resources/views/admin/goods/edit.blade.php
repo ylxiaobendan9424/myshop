@@ -48,7 +48,7 @@
 
 
     			<div class="mws-form-row">
-    				<label class="mws-form-label">商品名</label>
+    				<label class="mws-form-label">商品名1</label>
     				<div class="mws-form-item">
     					<input type="text" class="small" name='gname' value='{{$goodsone->gname}}'>
     				</div>

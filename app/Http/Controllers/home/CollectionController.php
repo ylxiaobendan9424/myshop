@@ -16,10 +16,16 @@ class CollectionController extends Controller
         $uid=$data->id;
         $data=Collection::where('user_id',$uid)->with('goodspic.goods')->get();
     	// $res = DB::table('collection')
-    	// ->Join('goods', 'goods.id', '=', 'collection.goods_id')
+     //    ->where('user_id',$uid)
+     //    ->Join('goods', 'goods.id', '=', 'collection.goods_id')
+    	// ->Join('goodspic', 'goodspic.gid', '=', 'collection.goods_id')
     	// ->get();
-        // dd($data);
-
+        // dd($res); 
+        // dump($data);
+        // foreach($res as $k=>$v){
+        //    dd($v);
+        // }
+        // die;
     	return view('home.info.collection',['res'=>$data]);
     }
     public function create(Request $request)

@@ -24,5 +24,5 @@ class Address extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','address','phone','status'];
+    protected $fillable = ['uid','name','address','xxaddress','phone','status'];
 }

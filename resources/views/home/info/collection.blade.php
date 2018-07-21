@@ -7,7 +7,7 @@
 		float:left;
 		width:150px;
 		height:200px;
-		border:1px solid black;
+		border:0px solid black;
 		margin: 10px;
 
 	}
@@ -21,18 +21,18 @@
 
 		<div class='kuang' id="del_{{$v->id}}">  
 			<table>
-			@foreach($v->goodspic as $kk=>$vv)
+			
 			<a href="javascrpit:void()"><span class="clicks" gid="{{$v->id}}">X</span></a>
 				<tr>
-					<td><a href="/home/details/{{$vv->goods->id}}"><img src="{{$vv->gpic}}" alt="" width="150px" height="150px"></a></td>
+					<td><a href="/home/details/{{$v->goods_id}}"><img src="{{$v->goodspic->gpic}}" alt="" width="150px" height="150px"></a></td>
 				</tr>
 				<tr>
-					<td>{{$vv->goods->gname}}</td>
+					<td>{{$v->goodspic->goods->gname}}</td>
 				</tr>
 				<tr>
-					<td>{{$vv->goods->price}}</td>
+					<td>{{$v->goodspic->goods->price}}</td>
 				</tr>
-			@endforeach
+			
 			</table>
 		</div>
 @endforeach

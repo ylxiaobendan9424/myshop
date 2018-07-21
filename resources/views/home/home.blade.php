@@ -208,20 +208,7 @@
                     data-endspeed="1000"
                     data-endeasing="Power4.easeIn" style=""><img src="{{$v->url}}" alt="Girl"></div>
 
-                    <div class="tp-caption customin ltl tp-resizeme revo-slider-caps-text uppercase"
-                    data-x="570"
-                    data-y="75"
-                    data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                    data-speed="700"
-                    data-start="1000"
-                    data-easing="easeOutQuad"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.01"
-                    data-endelementdelay="0.1"
-                    data-endspeed="1000"
-                    data-endeasing="Power4.easeIn" style=" color: #333;">Get your Shopping Bags Ready</div>
-
+                    
                     <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
                     data-x="570"
                     data-y="105"
@@ -235,20 +222,6 @@
                     data-endelementdelay="0.1"
                     data-endspeed="1000"
                     data-endeasing="Power4.easeIn" style=" color: #333; max-width: 430px; white-space: normal; line-height: 1.15;">Latest Fashion Collections</div>
-
-                    <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
-                    data-x="570"
-                    data-y="275"
-                    data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1.3;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                    data-speed="700"
-                    data-start="1400"
-                    data-easing="easeOutQuad"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.01"
-                    data-endelementdelay="0.1"
-                    data-endspeed="1000"
-                    data-endeasing="Power4.easeIn" style=" color: #333; max-width: 550px; white-space: normal;">We have created a Design that looks Awesome, performs Brilliantly &amp; senses Orientations.</div>
 
                    
                 </li>
@@ -443,7 +416,7 @@
                 <div class="container clearfix">
 
                     <div class="col-md-9 nopadding">
-                       
+                       <p style="font-size:20px; color:green;">时尚女装</p>
                         <div class="col-md-6 noleftpadding bottommargin-sm">
                             <a href="#"><img src="/uploads/5Z92fK9aE41531465721.jpg" alt="Image"></a>
                             
@@ -493,7 +466,7 @@
                     <div class="tabs topmargin-lg clearfix" id="tab-3">
 
                         <ul class="tab-nav clearfix">
-                            <li><a href="#tabs-9">特价商品1</a></li>
+                            <li><a href="#tabs-9">特价商品</a></li>
                         </ul>
 
                         <div class="tab-container">

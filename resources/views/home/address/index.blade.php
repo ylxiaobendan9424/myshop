@@ -6,8 +6,7 @@
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>
-            <i class="icon-table">
-            </i>
+            
         </span>
     </div>
 
@@ -20,7 +19,7 @@
 
 <center>
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
-             aria-describedby="DataTables_Table_1_info" >
+             aria-describedby="DataTables_Table_1_info" style="margin-top:70px;">
                 <thead>
                     <tr role="row">
                     
@@ -29,23 +28,23 @@
                             序号
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 266px;" aria-label="Browser: activate to sort column ascending">
-                            姓名
+                        rowspan="1" colspan="1" style="width: 100px;" aria-label="Browser: activate to sort column ascending">
+                            收货人
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 170px;" aria-label="Engine version: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 130px;" aria-label="Engine version: activate to sort column ascending">
                             联系手机号
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 200px;" aria-label="CSS grade: activate to sort column ascending">
                            地址
                         </th>
                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 126px;" aria-label="CSS grade: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 300px;" aria-label="CSS grade: activate to sort column ascending">
                           详细地址
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 140px;" aria-label="CSS grade: activate to sort column ascending">
+                         rowspan="1" colspan="1" style="width: 60px;" aria-label="CSS grade: activate to sort column ascending">
                            操作
 
                         </th>
@@ -85,19 +84,21 @@
                             {{--checkfun($v->status)--}}
                         </td>
                          <td class=" ">
-                            <a href="/home/address/{{$v->id}}/edit" class='btn btn-info'>修改</a>
+                            <a href="/home/address/{{$v->id}}/edit" class='btn btn-success'>修改</a>
 
                             <form action="/home/address/{{$v->id}}" method='post' style='display:inline'>
                                 
                                 {{csrf_field()}}
 
                                 {{method_field('DELETE')}}
-                                <button  class='btn btn-warning'>删除</button>
+                                <button  class='btn btn-danger'>删除</button>
+                               
                             </form>
 
                             
                         </td>
                     </tr>
+
                  
                     @endforeach
                
@@ -105,6 +106,7 @@
             </table>
             </center>
              </form>
+            <center> <a href="/home/dizhi"><button class='btn btn-info'>我的地址</button></a></center>
 
             <style>
                 .pagination li{

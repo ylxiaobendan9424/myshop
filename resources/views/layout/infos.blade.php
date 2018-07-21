@@ -24,7 +24,7 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
+									<a href="/home" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
 									
 								</div>
 							</div>
@@ -38,7 +38,7 @@
 								<div class="menu-hd"><a id="mc-menu-hd" href="/home/cart" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span></a></div>
 							</div>
 							<div class="topMessage favorite">
-								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+								<div class="menu-hd"><a href="/info/collection" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 							</div>
 						</ul>
 						</div>
@@ -102,13 +102,13 @@
 			<aside class="menu">
 				<ul>
 					<li class="person active">
-						<a href="index.html">个人中心</a>
+						<a href="info">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
 							<li> <a href="gerenxinxi">个人信息</a></li>
-							<li> <a href="shouhuo">收货地址</a></li>
+							<li> <a href="/home/address">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
@@ -123,8 +123,6 @@
 						<a href="#">我的小窝</a>
 						<ul>
 							<li> <a href="collection">收藏</a></li>
-							
-							<li> <a href="comment">评价</a></li>
 							
 						</ul>
 					</li>

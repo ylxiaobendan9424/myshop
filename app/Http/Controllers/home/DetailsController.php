@@ -14,6 +14,17 @@ class DetailsController extends Controller
     {
         $data = Goods::with('gs')->where('id',$id)->get();
         $aa = DB::table('link')->get();
+        $tj = DB::table('tjgoods')->get();
+        foreach ($data as $k => $v) {
+            // dd($v->price);
+            foreach ($tj as $k1 => $v1) {
+                // dd($v->gid);
+                if ($v1->gid == $v->id) {
+                    $v->price = $v1->gprice;
+                    // dd($v->price);
+                }
+            }
+        }
         return view('home.index.details',['data'=>$data,'aa'=>$aa]);
 
     }

@@ -21,6 +21,6 @@ class Collection extends Model
      */
     protected $fillable = ['id','goods_id','user_id'];
     public function goodspic(){
-    	return $this->hasMany('App\Models\Admin\Goodspic','gid');
+    	return $this->belongsTo('App\Models\Admin\Goodspic','goods_id','gid');
     }
 }

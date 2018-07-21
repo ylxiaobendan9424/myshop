@@ -24,7 +24,7 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
+									<a href="/home" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/homes/images/logo.png" alt="Canvas Logo"></a>
 									
 								</div>
 							</div>
@@ -102,13 +102,13 @@
 			<aside class="menu">
 				<ul>
 					<li class="person active">
-						<a href="index.html">个人中心</a>
+						<a href="info">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
 							<li> <a href="gerenxinxi">个人信息</a></li>
-							<li> <a href="shouhuo">收货地址</a></li>
+							<li> <a href="/home/address">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
@@ -123,7 +123,6 @@
 						<a href="#">我的小窝</a>
 						<ul>
 							<li> <a href="collection">收藏</a></li>
-							<li> <a href="commen">评价</a></li>
 						</ul>
 					</li>
 
